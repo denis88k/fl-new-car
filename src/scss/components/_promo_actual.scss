@@ -1,0 +1,61 @@
+.section {
+  &__promo-footer {
+  }
+}
+
+.promo {
+  &__footer-title {
+    @include adaptiv-value(font-size, 50, 32, 1);
+    font-weight: 550;
+    line-height: 110%;
+    text-align: center;
+    color: #31333e;
+  }
+
+  &__footer-blocks {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__footer-block {
+    @include adaptiv-value(max-width, 453, 345, 1);
+
+    // TODO: рассчитать ширину каждого блока
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    width: 100%;
+    background-color: white;
+  }
+
+  //   &__footer-img {
+  //   }
+
+  &__footer-img:nth-child(1) {
+    width: 110px;
+    height: 85px;
+  }
+
+  &__footer-img:nth-child(2) {
+    width: 65px;
+    height: 97px;
+  }
+
+  &__footer-img:nth-child(3) {
+    width: 80px;
+    height: 61px;
+  }
+
+  &__footer-block-title {
+    @include adaptiv-value(margin-top, 37, 20, 1);
+    @include adaptiv-value(margin-bottom, 40, 30, 1);
+  }
+
+  //   &__head-btn {
+  //   }
+}

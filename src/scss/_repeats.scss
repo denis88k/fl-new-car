@@ -1,0 +1,46 @@
+.promo {
+  &-title {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 115%;
+    color: #31333e;
+  }
+
+  &-btn {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 100%;
+
+    &::after {
+      background-image: url('./../img/arrow_right_blue.png');
+    }
+  }
+}
+
+.arrow-right {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: 10px;
+    width: 6.79px;
+    height: 11px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (width <= 420px) {
+  .promo {
+    &-title {
+      font-size: 22px;
+    }
+  }
+}

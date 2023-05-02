@@ -42,3 +42,9 @@
     #{$property}: calc(#{$minSize + px} + #{$addSize} * (((100vw - #{$minWidth + px})) / ((#{$maxWidth - $minWidth}))));
   }
 }
+
+// @include maxwidth(855);
+@mixin maxwidth($MW) {
+  width: 100%;
+  max-width: #{$MW}px;
+}
