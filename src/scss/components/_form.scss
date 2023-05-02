@@ -1,0 +1,64 @@
+.modal {
+  &__form {
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__item:nth-child(1) {
+    position: relative;
+
+    &::before {
+      content: 'Ваш номер телефона';
+      position: absolute;
+      margin-top: -8px;
+      margin-left: 26px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 135%;
+      color: #838383;
+    }
+  }
+
+  &__item:nth-child(2) {
+    @include adaptiv-value(margin-top, 15, 10, 1);
+    @include adaptiv-value(margin-bottom, 15, 10, 1);
+  }
+
+  &__input {
+    border: 1.5px solid #efefef;
+    border-radius: 15px;
+    padding: 20px 0 20px 45px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 135%;
+    color: #31333e;
+  }
+
+  &__item-btn {
+    border-radius: 15px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    text-align: center;
+    background-color: #0084ff;
+    transition: all 0.3s ease;
+
+    &::after {
+      background-image: url('./../img/arrow_right_white.png');
+    }
+
+    &:hover {
+      background-color: #309bff;
+    }
+  }
+}
+
+.input {
+  &__tel {
+  }
+
+  &__name {
+  }
+}

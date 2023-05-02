@@ -1,0 +1,10 @@
+.chat {
+  &__inner {
+    @include adaptiv-value(padding-left, 120, 15, 1);
+    @include adaptiv-value(padding-right, 120, 15, 1);
+    width: 100%;
+    max-width: 940px;
+    box-shadow: 0 -5px 0 #0084ff;
+    background-color: #fff;
+  }
+}

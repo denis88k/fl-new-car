@@ -1,0 +1,27 @@
+.chat {
+  &__message {
+    @include adaptiv-value(padding-top, 25, 20, 1);
+    @include adaptiv-value(padding-bottom, 25, 20, 1);
+    @include adaptiv-value(padding-left, 40, 20, 1);
+    @include adaptiv-value(padding-right, 40, 20, 1);
+  }
+
+  &__message-consultant {
+    border-radius: 0 50px 50px;
+    box-shadow: 0 4px 13px rgb(0 0 0 / 7%);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 135%;
+    color: #31333e;
+    background-color: white;
+  }
+
+  &__message-client {
+    border-radius: 50px 0 50px 50px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 125%;
+    color: white;
+    background-color: #343434;
+  }
+}

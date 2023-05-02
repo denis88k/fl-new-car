@@ -1,0 +1,47 @@
+.color {
+  &__blocks {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    padding: 20px 25px;
+    box-shadow: 0 4px 13px rgb(0 0 0 / 7%);
+    background-color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  &__block:hover {
+    background-color: #e2f1ff;
+
+    .color__block-text {
+      color: #0084ff;
+    }
+  }
+
+  &__block-sqr {
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__block-text {
+    @include adaptiv-value(font-size, 20, 18, 1);
+    font-weight: 400;
+    line-height: 135%;
+    color: #31333e;
+  }
+}
+@media screen and (width <= 420px) {
+  .color {
+    &__block-text {
+      line-height: 125%;
+    }
+  }
+}
