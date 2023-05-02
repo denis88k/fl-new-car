@@ -1,0 +1,19 @@
+.chat {
+  &__form-inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    @include adaptiv-value(margin-bottom, 70, 15, 1);
+    border-top: 1px solid #f4f6f7;
+    padding-top: 50px;
+    gap: 30px;
+  }
+
+  &__form-block {
+    flex: 1 0 50%;
+  }
+
+  &__discount-block {
+    flex: 1 0 50%;
+  }
+}

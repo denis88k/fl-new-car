@@ -1,0 +1,30 @@
+.chat {
+  &__container {
+    @include adaptiv-value(padding-left, 120, 15, 1);
+    @include adaptiv-value(padding-right, 120, 15, 1);
+    margin: 0 auto;
+    margin-top: 90px;
+    @include adaptiv-value(margin-bottom, 70, 15, 1);
+    border-radius: 100px;
+    width: 100%;
+    max-width: 940px;
+    box-shadow: 0 -5px 0 #0084ff;
+    background-color: #fff;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    @include adaptiv-value(row-gap, 20, 15, 1);
+    width: 100%;
+  }
+}
+
+@media screen and (width <= 420px) {
+  .chat {
+    &__container {
+      @include adaptiv-value(margin-left, 120, 15, 1);
+      @include adaptiv-value(margin-right, 120, 15, 1);
+    }
+  }
+}

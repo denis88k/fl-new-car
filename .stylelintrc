@@ -10,11 +10,7 @@
     "order/order": [
       "custom-properties",
       "dollar-variables",
-      {
-        "type": "at-rule",
-        "name": "include",
-        "hasBlock": false
-      },
+
       "declarations",
       {
         "type": "rule",
@@ -76,13 +72,7 @@
       {
         "type": "rule",
         "selector": ".* &"
-      },
-      {
-        "type": "at-rule",
-        "name": "include",
-        "hasBlock": true
-      },
-      "at-rules"
+      }
     ],
     "order/properties-alphabetical-order": null,
     "order/properties-order": [
@@ -457,6 +447,6 @@
         "unspecified": "bottomAlphabetical"
       }
     ],
-    "scss/dollar-variable-pattern": ["/[a-z][a-zA-Z]+/", { "ignore": "global" }]
+    "scss/dollar-variable-pattern": ["/[a-z][a-zA-Z]+/", { "ignore": "local" }]
   }
 }

@@ -1,14 +1,15 @@
 .title-main {
   @include adaptiv-value(font-size, 60, 32, 1);
+  @include adaptiv-value(margin-top, 55, 34, 1);
+  @include adaptiv-value(margin-bottom, 44, 36, 1);
   font-weight: 550;
-  font-size: 60px;
   line-height: 110%;
   text-align: center;
   color: #31333e;
 }
 
 .promo {
-  &__header-blocks {
+  &__header-inner {
     display: flex;
     justify-content: space-between;
   }
@@ -17,23 +18,27 @@
     display: flex;
     justify-content: space-between;
     border-radius: 20px;
+    width: 100%;
     max-width: 695px;
     background-color: white;
   }
 
   &__header-discr {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     margin-top: 32px;
     margin-bottom: 37px;
     margin-left: 40px;
   }
 
-  &__header-title.arrow-right {
+  &__header-title.arrow-right::after {
     display: none;
   }
 
   &__header-text {
-    @include adaptiv-value(margin-bottom, 46, 30, 1);
     margin-top: 10px;
+    @include adaptiv-value(margin-bottom, 46, 30, 1);
     font-weight: 400;
     font-size: 18px;
     line-height: 140%;
@@ -46,12 +51,12 @@
 
     &::before,
     &::after {
-      @include adaptiv-value(height, 253, 145, 1);
       content: '';
       position: absolute;
       display: inline-block;
       width: 100%;
       max-width: 296px;
+      @include adaptiv-value(height, 253, 145, 1);
     }
 
     &::before {
@@ -65,21 +70,21 @@
     }
   }
 
-  &__header-btn {
-  }
+  // &__header-btn {
+  // }
 }
 
-.promo-car {
-}
+// .promo-car {
+// }
 
-.promo-car-img {
-}
+// .promo-car-img {
+// }
 
-.promo-percent {
-}
+// .promo-percent {
+// }
 
-.promo-percent-text {
-}
+// .promo-percent-text {
+// }
 
-.promo-percent-img {
-}
+// .promo-percent-img {
+// }

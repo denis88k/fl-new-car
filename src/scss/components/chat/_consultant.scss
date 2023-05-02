@@ -1,17 +1,20 @@
 .chat {
-  &__consultant {
+  &__consultant-inner {
     display: flex;
     align-items: center;
+    margin-top: 55px;
+    margin-bottom: 35px;
     margin-left: 25px;
   }
 
   &__consultant-img {
     @include adaptiv-value(width, 100, 80, 1);
     @include adaptiv-value(height, 100, 80, 1);
+    margin-right: 25px;
   }
 
-  &__consultant-info {
-  }
+  // &__consultant-info {
+  // }
 
   &__consultant-name {
     @include adaptiv-value(margin-bottom, 5, 3, 1);

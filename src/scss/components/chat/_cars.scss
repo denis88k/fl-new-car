@@ -1,0 +1,77 @@
+.car {
+  &__card-blocks {
+  }
+
+  &__card-inner {
+    display: flex;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 30px;
+  }
+
+  &__card-block {
+    // flex: 0 50%;
+    cursor: pointer;
+  }
+
+  &__card-img {
+    border-radius: 15px;
+    transition: all 0.3s linear;
+  }
+
+  &__card-text {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 7px;
+  }
+
+  &__card-title {
+    margin-right: 12px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 140%;
+    color: #31333e;
+    transition: all 0.3s linear;
+  }
+
+  &__card-inStock {
+    border-radius: 36px;
+    padding: 3px 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 135%;
+    color: #8d8d8d;
+    background: #f4f6f7;
+  }
+
+  &__card-price {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    color: #8d8d8d;
+
+    .price-car {
+      color: inherit;
+    }
+  }
+
+  &__card-block:hover {
+    .car {
+      &__card-img {
+        background-color: #f6f7f8;
+      }
+      &__card-title {
+        color: #0084ff;
+      }
+    }
+  }
+  &__card-block.active {
+    .car {
+      &__card-img {
+        background-color: #f6f7f8;
+      }
+    }
+  }
+}

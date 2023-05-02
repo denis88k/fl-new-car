@@ -7,18 +7,13 @@
 
   <div class="wrapper">
 
-    @include('_header.html')
+    @include('./_header.html')
 
     <main class="main">
       <div class='container'>
-        здесь основной контент
-
-        <span>
-          <div class='click'>проверка работоспособности</div>
-        </span>
-
-        всё работает!
-
+        @include('./_title-promo.html')
+        @include('./chat/_chat.html')
+        @include('./_promo-actual.html')
       </div>
     </main>
 
@@ -27,7 +22,6 @@
   </div>
 
   @include('_script.html')
-
 </body>
 
 </html>

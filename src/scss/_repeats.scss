@@ -14,32 +14,38 @@
     font-style: normal;
     font-size: 18px;
     line-height: 100%;
+    color: #0085ff;
+    cursor: pointer;
 
     &::after {
-      background-image: url('./../img/arrow_right_blue.png');
+      right: -15px;
+      top: 4px;
+      background-image: url('./../img/arrow_right_blue.svg');
+      transition: all 0.2s linear;
+    }
+
+    &:hover::after {
+      right: -20px;
     }
   }
 }
 
 .arrow-right {
   position: relative;
-  transition: all 0.3s ease;
-
-  &:hover&::after {
-    margin-left: 15px;
-  }
 
   &::after {
     content: '';
     position: absolute;
-    display: inline-block;
-    margin-left: 10px;
     width: 6.79px;
     height: 11px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
+
+  // &:hover::after {
+  //   margin-left: 15px;
+  // }
 }
 
 @media screen and (width <= 420px) {

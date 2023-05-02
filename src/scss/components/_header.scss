@@ -12,17 +12,19 @@
 
   &__logo-text {
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 
   &__logo {
+    margin-right: 30px;
     width: 116px;
     height: 71px;
   }
 
   &__text {
-    @include adaptiv-value(font-size, 16, 14, 1);
     @include maxwidth(346);
+    @include adaptiv-value(font-size, 16, 14, 1);
     font-weight: 400;
     font-style: normal;
     line-height: 150%;
@@ -30,20 +32,18 @@
   }
 
   &__tel {
-    @include adaptiv-value(max-width, 264, 345, 1);
-    @include adaptiv-value(height, 53, 35, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
+    @include adaptiv-value(max-width, 264, 345, 1);
     width: 100%;
+    @include adaptiv-value(height, 53, 35, 1);
     background-color: #f6f7f8;
   }
 
   &__tel-link {
     @include adaptiv-value(font-size, 24, 20, 1);
-
-    // font-family: HelveticaNeueCyr, sans-serif;
     font-weight: 700;
     font-style: normal;
     line-height: 125%;

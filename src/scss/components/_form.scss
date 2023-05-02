@@ -1,8 +1,3 @@
-.modal {
-  &__form {
-  }
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -15,10 +10,12 @@
       position: absolute;
       margin-top: -8px;
       margin-left: 26px;
+      padding: 0 6px;
       font-weight: 400;
       font-size: 14px;
       line-height: 135%;
       color: #838383;
+      background-color: white;
     }
   }
 
@@ -31,6 +28,7 @@
     border: 1.5px solid #efefef;
     border-radius: 15px;
     padding: 20px 0 20px 45px;
+    width: 100%;
     font-weight: 400;
     font-size: 20px;
     line-height: 135%;
@@ -38,15 +36,24 @@
   }
 
   &__item-btn {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     border-radius: 15px;
     padding-top: 22px;
     padding-bottom: 22px;
+    font-weight: 550;
+    line-height: 100%;
     text-align: center;
+    color: white;
     background-color: #0084ff;
-    transition: all 0.3s ease;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    @include adaptiv-value(font-size, 20, 18, 1);
 
     &::after {
-      background-image: url('./../img/arrow_right_white.png');
+      background-image: url('./../img/arrow_right_white.svg');
+      transform: translate(200%, 50%);
     }
 
     &:hover {
@@ -55,10 +62,10 @@
   }
 }
 
-.input {
-  &__tel {
-  }
+// .input {
+//   &__tel {
+//   }
 
-  &__name {
-  }
-}
+//   &__name {
+//   }
+// }

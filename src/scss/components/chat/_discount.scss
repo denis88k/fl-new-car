@@ -1,18 +1,18 @@
 .discount {
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-radius: 15px;
-  background: rgb(246 247 248 / 50%);
+  background-color: rgb(246 247 248 / 50%);
 
   &__price {
+    border-radius: 15px 15px 0 0;
     padding: 16px 0 12px;
     font-weight: 700;
     font-size: 31px;
     line-height: 125%;
     text-align: center;
     color: #0084ff;
-    background: #edf8ff;
+    background-color: #edf8ff;
   }
 
   &__promocode {
@@ -28,13 +28,21 @@
   }
 
   &__text {
-    @include adaptiv-value(padding-bottom, 30, 15, 1);
     border-top: 1px solid rgb(228 228 228 / 70%);
     padding-top: 12px;
+    @include adaptiv-value(padding-bottom, 30, 15, 1);
+    padding-right: 55px;
+    padding-left: 55px;
     font-weight: 400;
     font-size: 14px;
     line-height: 135%;
     text-align: center;
     color: #838383;
+  }
+
+  &__price,
+  &__promocode,
+  &__text {
+    text-align: center;
   }
 }
