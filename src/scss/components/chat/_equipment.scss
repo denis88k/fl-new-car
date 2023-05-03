@@ -62,7 +62,7 @@
   &__btn {
     @include adaptiv-value(font-size, 18, 17, 1);
     border-radius: 20px;
-    padding: 19px 0;
+    padding: 19px 10px;
     width: 100%;
     font-weight: 550;
     line-height: 125%;

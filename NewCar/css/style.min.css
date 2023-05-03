@@ -1018,7 +1018,7 @@ body._lock {
 .equipment__btn {
   font-size: 18px;
   border-radius: 20px;
-  padding: 19px 0;
+  padding: 19px 10px;
   width: 100%;
   font-weight: 550;
   line-height: 125%;
