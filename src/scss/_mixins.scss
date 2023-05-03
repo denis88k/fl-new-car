@@ -35,13 +35,14 @@
   }
 }
 
-// Адаптивное свойство до
+//Адаптивное свойство с контейнера до "определённой минимальной ширины"
+// @include adaptiv-value-to(margin-top, 90, 50, 320);
 @mixin adaptiv-value-to($property, $startSize, $minSize, $minWidth) {
-  $addSize: #{$startSize} - #{$minSize};
+  $addSize: $startSize - $minSize;
+  #{$property}: $minSize + px;
 
-  // #{$property}: $minSize + px;
   @media (min-width: #{$minWidth + px}) {
-    #{$property}: calc(#{$minSize + px} + #{$addSize} * (((100vw - #{$minWidth + px})) / ((#{$maxWidth - $minWidth}))));
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / (#{$maxWidth - $minWidth})));
   }
 }
 

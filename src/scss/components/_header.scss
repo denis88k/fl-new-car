@@ -46,6 +46,7 @@
     width: 100%;
     @include adaptiv-value(height, 53, 35, 1);
     background-color: #f6f7f8;
+    cursor: pointer;
   }
 
   &__tel-link {
@@ -64,15 +65,7 @@
 
     &__logo-text {
       justify-content: center;
-    }
-  }
-}
-
-@media screen and (width <= 420px) {
-  .header {
-    &__text {
-      line-height: 135%;
-      color: #90929a;
+      margin-bottom: 10px;
     }
 
     &__tel {
@@ -81,6 +74,16 @@
 
     &__tel-link {
       color: #309cff;
+    }
+  }
+}
+
+@media screen and (width <= 420px) {
+  .header {
+    &__text {
+      max-width: 220px;
+      line-height: 135%;
+      color: #90929a;
     }
   }
 }
