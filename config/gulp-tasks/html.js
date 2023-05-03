@@ -22,11 +22,11 @@ export const html = () => {
         }),
       )
       .pipe(webpHtmlNosvg())
-      .pipe(
-        typograf({
-          locale: ['ru', 'en-US'],
-        }),
-      )
+      // .pipe(
+      //   typograf({
+      //     locale: ['ru', 'en-US'],
+      //   }),
+      // )
       // .pipe(
       //   app.plugins.if(
       //     app.isCache,
