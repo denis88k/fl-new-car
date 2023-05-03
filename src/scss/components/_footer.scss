@@ -15,7 +15,7 @@
 
   &__requisites {
     display: flex;
-    @include adaptiv-value-in-min(column-gap, 47, 10, 1420, 950);
+    @include adaptiv-value-in-min(column-gap, 47, 12, 1420, 950);
     justify-content: space-between;
     @media screen and (width <= 750px) {
       column-gap: 15px;

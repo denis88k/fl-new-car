@@ -697,16 +697,20 @@ body._lock {
   width: 100%;
   max-width: 940px;
   box-shadow: 0 -5px 0 #0084ff;
-  background-color: #fff;
+  background-color: white;
 }
-@media (max-width: 1420px) {
+@media (max-width: 940px) {
   .chat__container {
-    padding-left: calc(15px + 105 * ((100vw - 320px) / 1100));
+    padding-left: calc(
+      15px + 105 * ((100vw - 375px) / 565)
+    );
   }
 }
-@media (max-width: 1420px) {
+@media (max-width: 940px) {
   .chat__container {
-    padding-right: calc(15px + 105 * ((100vw - 320px) / 1100));
+    padding-right: calc(
+      15px + 105 * ((100vw - 375px) / 565)
+    );
   }
 }
 @media (max-width: 1420px) {
@@ -856,7 +860,7 @@ body._lock {
   display: flex;
   column-gap: 20px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   row-gap: 30px;
 }
 .car__card-block {
@@ -864,7 +868,21 @@ body._lock {
 }
 .car__card-img {
   border-radius: 15px;
+  padding: 6px 15px;
   transition: all 0.3s linear;
+  width: 339px;
+}
+@media (max-width: 940px) {
+  .car__card-img {
+    width: calc(
+      230px + 109 * ((100vw - 620px) / 320)
+    );
+  }
+}
+@media screen and (width <= 620px) {
+  .car__card-img {
+    width: 339px;
+  }
 }
 .car__card-text {
   display: flex;
@@ -1295,7 +1313,7 @@ body._lock {
 @media (max-width: 1420px) {
   .footer__requisites {
     column-gap: calc(
-      10px + 37 * ((100vw - 950px) / 470)
+      12px + 35 * ((100vw - 950px) / 470)
     );
   }
 }

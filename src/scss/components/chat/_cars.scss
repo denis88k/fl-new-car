@@ -6,18 +6,27 @@
     display: flex;
     column-gap: 20px;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     row-gap: 30px;
+    // @media screen and (width <=750px){
+    //   flex-direction: column;
+    //   align-items: center;
+    // }
   }
 
   &__card-block {
-    // flex: 0 50%;
+    // flex: 1 0 25%;
     cursor: pointer;
   }
 
   &__card-img {
     border-radius: 15px;
+    padding: 6px 15px;
     transition: all 0.3s linear;
+    @include adaptiv-value-in-min(width, 339, 230, 940, 620);
+    @media screen and (width <= 620px) {
+      width: 339px;
+    }
   }
 
   &__card-text {
@@ -62,11 +71,13 @@
       &__card-img {
         background-color: #f6f7f8;
       }
+
       &__card-title {
         color: #0084ff;
       }
     }
   }
+
   &__card-block.active {
     .car {
       &__card-img {

@@ -2,8 +2,8 @@
   opacity: 0;
 
   &__container {
-    @include adaptiv-value(padding-left, 120, 15, 1);
-    @include adaptiv-value(padding-right, 120, 15, 1);
+    @include adaptiv-value-in-min(padding-left, 120, 15, 940, 375);
+    @include adaptiv-value-in-min(padding-right, 120, 15, 940, 375);
     margin-top: 90px;
     @include adaptiv-value(margin-bottom, 70, 15, 1);
     margin-right: auto;
@@ -12,7 +12,7 @@
     width: 100%;
     max-width: 940px;
     box-shadow: 0 -5px 0 #0084ff;
-    background-color: #fff;
+    background-color: white;
   }
 
   &__inner {
