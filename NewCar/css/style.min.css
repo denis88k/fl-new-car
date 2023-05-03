@@ -1033,6 +1033,11 @@ body._lock {
   transition: all 0.3s ease;
   cursor: pointer;
 }
+@media screen and (width <= 750px) {
+  .color__block {
+    padding: 15px 20px;
+  }
+}
 .color__block-sqr {
   margin-right: 15px;
   border-radius: 5px;
