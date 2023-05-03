@@ -8,7 +8,7 @@
     @include adaptiv-value(margin-bottom, 70, 15, 1);
     margin-right: auto;
     margin-left: auto;
-    border-radius: 100px;
+    @include adaptiv-value(border-radius, 100, 40, 1);
     width: 100%;
     max-width: 940px;
     box-shadow: 0 -5px 0 #0084ff;
@@ -30,8 +30,8 @@
 @media screen and (width <= 420px) {
   .chat {
     &__container {
-      @include adaptiv-value(margin-left, 120, 15, 1);
-      @include adaptiv-value(margin-right, 120, 15, 1);
+      // @include adaptiv-value(margin-left, 120, -15, 1);
+      // @include adaptiv-value(margin-right, 120, -15, 1);
     }
   }
 }

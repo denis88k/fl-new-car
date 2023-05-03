@@ -714,6 +714,11 @@ body._lock {
     margin-bottom: calc(15px + 55 * ((100vw - 320px) / 1100));
   }
 }
+@media (max-width: 1420px) {
+  .chat__container {
+    border-radius: calc(40px + 60 * ((100vw - 320px) / 1100));
+  }
+}
 .chat__inner {
   display: flex;
   flex-direction: column;
@@ -729,22 +734,6 @@ body._lock {
   animation-delay: 0.5s;
 }
 
-@media screen and (width <= 420px) {
-  .chat__container {
-    margin-left: 120px;
-    margin-right: 120px;
-  }
-}
-@media screen and (width <= 420px) and (max-width: 1420px) {
-  .chat__container {
-    margin-left: calc(15px + 105 * ((100vw - 320px) / 1100));
-  }
-}
-@media screen and (width <= 420px) and (max-width: 1420px) {
-  .chat__container {
-    margin-right: calc(15px + 105 * ((100vw - 320px) / 1100));
-  }
-}
 .chat__consultant-inner {
   display: flex;
   align-items: center;
@@ -1076,23 +1065,40 @@ body._lock {
 }
 .chat__form-inner {
   display: flex;
+  column-gap: 30px;
   justify-content: space-between;
   margin-top: 50px;
-  margin-bottom: 70px;
   border-top: 1px solid #f4f6f7;
   padding-top: 50px;
-  gap: 30px;
+  margin-bottom: 70px;
+}
+@media (max-width: 1420px) {
+  .chat__form-inner {
+    padding-top: calc(38px + 12 * ((100vw - 320px) / 1100));
+  }
 }
 @media (max-width: 1420px) {
   .chat__form-inner {
     margin-bottom: calc(15px + 55 * ((100vw - 320px) / 1100));
   }
 }
-.chat__form-block {
-  flex: 1 0 50%;
+@media screen and (width <= 750px) {
+  .chat__form-inner {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+  }
 }
-.chat__discount-block {
-  flex: 1 0 50%;
+.chat__form-block {
+  flex: 1 1 50%;
+}
+@media screen and (width <= 750px) {
+  .chat__form-block {
+    flex: 1 1 100%;
+  }
+  .chat__form-block:nth-child(1) {
+    max-width: 375px;
+  }
 }
 
 .discount {
@@ -1125,8 +1131,8 @@ body._lock {
   border-top: 1px solid rgba(228, 228, 228, 0.7);
   padding-top: 12px;
   padding-bottom: 30px;
-  padding-right: 55px;
-  padding-left: 55px;
+  padding-right: 54px;
+  padding-left: 54px;
   font-weight: 400;
   font-size: 14px;
   line-height: 135%;
