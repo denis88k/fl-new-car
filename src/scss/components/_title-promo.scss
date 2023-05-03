@@ -48,43 +48,61 @@
   &__header-img {
     position: relative;
     border-radius: 0 15px 15px 0;
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      display: inline-block;
-      width: 100%;
-      max-width: 296px;
-      @include adaptiv-value(height, 253, 145, 1);
-    }
-
-    &::before {
-      background: linear-gradient(133.04deg, #98b5ff 9.59%, rgb(153 182 255 / 76%) 94.37%);
-    }
-
-    &::after {
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
+    background: linear-gradient(133.04deg, #98b5ff 9.59%, rgb(153 182 255 / 76%) 94.37%);
   }
 
   // &__header-btn {
   // }
 }
 
-// .promo-car {
-// }
+.promo-car {
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    background-image: url('./../img/car.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    @include adaptiv-value(width, 380, 330, 1);
+    @include adaptiv-value(height, 243, 210, 1);
+  }
+}
 
-// .promo-car-img {
-// }
+.promo-percent {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 152px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
-// .promo-percent {
-// }
+  &::before {
+    left: -75px;
+    bottom: -60px;
+    background-image: url('./../img/arrow-around-left.svg');
+  }
 
-// .promo-percent-text {
-// }
+  &::after {
+    right: -65px;
+    top: -40px;
+    background-image: url('./../img/arrow-around-right.svg');
+  }
 
-// .promo-percent-img {
-// }
+  &-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-weight: 700;
+    font-size: 90px;
+    line-height: 130%;
+    color: white;
+    transform: translate(-50%, -50%);
+  }
+}

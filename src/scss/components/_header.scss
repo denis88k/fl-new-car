@@ -4,7 +4,8 @@
   background-color: white;
 
   &__inner {
-    @include adaptiv-value(height, 112, 123, 1);
+    @include adaptiv-value(padding-top, 20, 15, 1);
+    @include adaptiv-value(padding-bottom, 20, 15, 1);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,16 +15,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include maxwidth(450);
   }
 
   &__logo {
-    margin-right: 30px;
-    width: 116px;
-    height: 71px;
+    @include adaptiv-value(margin-right, 30, 15, 1);
+    @include adaptiv-value(width, 116, 83, 1);
+    @include adaptiv-value(height, 71, 51, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__text {
-    @include maxwidth(346);
+    // @include maxwidth(346);
+    // max-width: 346px;
     @include adaptiv-value(font-size, 16, 14, 1);
     font-weight: 400;
     font-style: normal;
@@ -50,13 +56,20 @@
     color: #309cff;
   }
 }
-
-@media screen and (width <= 420px) {
+@media screen and (width <= 780px) {
   .header {
     &__inner {
       flex-direction: column;
     }
 
+    &__logo-text {
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (width <= 420px) {
+  .header {
     &__text {
       line-height: 135%;
       color: #90929a;

@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'node:fs';
 
 import fonter from 'gulp-fonter';
 import ttf2woff2 from 'gulp-ttf2woff2';
@@ -56,12 +56,13 @@ export const ttfToWoff = () => {
   );
 };
 export const fontsStyle = () => {
-  let fontsFile = `${app.path.sourceFolder}/scss/fonts/fonts.scss`;
+  let fontsFile = `${app.path.sourceFolder}/scss/_fonts.scss`;
   // Если передан флаг --rewrite удаляем файл подключения шрифтов
   // app.isFontsReW ? fs.unlink(fontsFile, cb) : null ///??????????????
   // Проверяем существуют ли файлы шрифтов
-  fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
+  fs.readdir(app.path.build.fonts, (err, fontsFiles) => {
     if (fontsFiles) {
+      // fontsFiles - массив имён файлов
       // Проверяем существует ли файл стилей для подключения шрифтов
       if (!fs.existsSync(fontsFile)) {
         // Если файла нет, создаем его
@@ -102,7 +103,7 @@ export const fontsStyle = () => {
         }
       } else {
         // Если файл есть, выводим сообщение
-        console.log('Файл scss/fonts/fonts.scss уже существует. Для обновления файла нужно его удалить!');
+        console.log('Файл scss/fonts/_fonts.scss уже существует. Для обновления файла нужно его удалить!');
       }
     } else {
       // Если шрифтов нет

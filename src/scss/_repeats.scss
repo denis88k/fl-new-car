@@ -55,3 +55,22 @@
     }
   }
 }
+
+.show_anim {
+  animation-name: show_anim;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+
+  @keyframes show_anim {
+    0% {
+      opacity: 0;
+      transform: translateY(300px) scale(0.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}

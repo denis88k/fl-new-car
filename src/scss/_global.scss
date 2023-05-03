@@ -1,8 +1,8 @@
 // переменные
 $minWidth: 320px;
 $pd: 30px;
-$maxWidthContainer: 1420px;
-$md1: calc($maxWidthContainer + $pd);
+$maxWidthContainer: 1420;
+$md1: $maxWidthContainer + $pd;
 
 html,
 body {

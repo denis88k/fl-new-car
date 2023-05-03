@@ -1,10 +1,13 @@
 .chat {
+  opacity: 0;
+
   &__container {
     @include adaptiv-value(padding-left, 120, 15, 1);
     @include adaptiv-value(padding-right, 120, 15, 1);
-    margin: 0 auto;
     margin-top: 90px;
     @include adaptiv-value(margin-bottom, 70, 15, 1);
+    margin-right: auto;
+    margin-left: auto;
     border-radius: 100px;
     width: 100%;
     max-width: 940px;
@@ -17,6 +20,10 @@
     flex-direction: column;
     @include adaptiv-value(row-gap, 20, 15, 1);
     width: 100%;
+  }
+
+  &.show_anim {
+    animation-delay: 0.5s;
   }
 }
 
