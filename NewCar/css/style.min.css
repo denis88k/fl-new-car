@@ -1172,6 +1172,13 @@ body._lock {
 .promo__footer-blocks {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
+}
+@media screen and (width <= 750px) {
+  .promo__footer-blocks {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .promo__footer-block {
   display: flex;
@@ -1182,6 +1189,7 @@ body._lock {
   padding-top: 40px;
   padding-bottom: 40px;
   padding-left: 40px;
+  padding-right: 10px;
   max-width: 453px;
   width: 100%;
   background-color: white;
