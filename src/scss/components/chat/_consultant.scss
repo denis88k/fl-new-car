@@ -2,15 +2,21 @@
   &__consultant-inner {
     display: flex;
     align-items: center;
-    margin-top: 55px;
-    margin-bottom: 35px;
-    margin-left: 25px;
+    @include adaptiv-value(margin-top, 55, 25, 1);
+    @include adaptiv-value(margin-bottom, 35, 20, 1);
+    @media screen and (width <= 650px) {
+      justify-content: space-between;
+    }
   }
 
   &__consultant-img {
-    @include adaptiv-value(width, 100, 80, 1);
+    @include adaptiv-value(max-width, 100, 80, 1);
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    width: 100%;
     @include adaptiv-value(height, 100, 80, 1);
-    margin-right: 25px;
+    @include adaptiv-value(margin-right, 25, 15, 1);
   }
 
   // &__consultant-info {

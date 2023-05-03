@@ -26,12 +26,3 @@
     animation-delay: 0.5s;
   }
 }
-
-@media screen and (width <= 420px) {
-  .chat {
-    &__container {
-      // @include adaptiv-value(margin-left, 120, -15, 1);
-      // @include adaptiv-value(margin-right, 120, -15, 1);
-    }
-  }
-}
