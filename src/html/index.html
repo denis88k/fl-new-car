@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
+  @include('_head.html')
 
-@include('_head.html')
+  <body>
+    <div class="wrapper">
+      @include('./_header.html')
 
-<body>
+      <main class="main">
+        <div class="container">@include('./_title-promo.html')</div>
+        @include('./chat/_chat.html') @include('./_promo-actual.html')
+      </main>
 
-  <div class="wrapper">
-
-    @include('./_header.html')
-
-    <main class="main">
-      <div class="container">
-        @include('./_title-promo.html')
-      </div>
-      @include('./chat/_chat.html')
-      @include('./_promo-actual.html')
-    </main>
-
-    @include('_footer.html')
-
-  </div>
-
-  @include('_script.html')
-</body>
-
+      @include('_footer.html')
+    </div>
+    @include('_modal.html') @include('_script.html')
+  </body>
 </html>
