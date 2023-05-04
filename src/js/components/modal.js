@@ -1,4 +1,4 @@
-export const modal = (btnOpen, modal, btnClose) => {
+const modal = (btnOpen, modal, btnClose) => {
   (btnOpen = document.querySelector(btnOpen)),
     (modal = document.querySelector(modal)),
     (btnClose = document.querySelector(btnClose));
@@ -25,3 +25,4 @@ export const modal = (btnOpen, modal, btnClose) => {
 // btnOpen --- класс кнопки, при клике на которую будет ОТКРЫВАТЬСЯ модальное окно
 // modal --- класс открываемого модального окна
 // btnClose --- класс кнопки, при клике на которую будет ЗАКРЫВАТЬСЯ модальное окно
+export default modal;

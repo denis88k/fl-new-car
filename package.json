@@ -57,5 +57,8 @@
     "terser-webpack-plugin": "^5.3.7",
     "webpack": "^5.81.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "inputmask": "^5.0.8-beta.72"
   }
 }
