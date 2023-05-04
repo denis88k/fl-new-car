@@ -1,0 +1,16 @@
+<div class="chat-message">
+  @include('./_chat_message-consul.html',
+  {'text': 'Здравствуйте!<br>Меня зовут Ольга. Я онлайн-консультант официального автосалона CHERY'})
+
+  @include('./_chat_message-consul.html',
+  {
+  'text': 'Пожалуйста, ответьте на пару вопросов, чтобы я могла составить для вас предложение с вариантами комплектации'
+  })
+
+  @include('./_chat_message-consul.html',
+  {'text': 'Какую модель автомобиля вы рассматриваете? Выберите модель из списка, нажав на нее:'})
+
+
+  @include('./_cars.html')
+  @include('./_chat_message-client.html', {'text':'Tivoli'})
+</div>
