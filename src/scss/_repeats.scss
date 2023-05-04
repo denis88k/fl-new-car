@@ -42,10 +42,6 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
-
-  // &:hover::after {
-  //   margin-left: 15px;
-  // }
 }
 
 @media screen and (width <= 420px) {
@@ -62,14 +58,25 @@
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
+
 @keyframes show_anim {
   0% {
-    opacity: 0;
+    opacity: 0.5;
     transform: translateY(300px) scale(0.9);
   }
 
   100% {
     opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes show_modal {
+  0% {
+    transform: translateY(300px) scale(0.9);
+  }
+
+  100% {
     transform: translateY(0) scale(1);
   }
 }

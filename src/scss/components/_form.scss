@@ -1,6 +1,9 @@
 .form {
   display: flex;
   flex-direction: column;
+  @media screen and (width <= 750px) {
+    min-width: 345px;
+  }
 
   &__item:nth-child(1) {
     position: relative;
@@ -36,12 +39,10 @@
   }
 
   &__item-btn {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     border-radius: 15px;
     padding-top: 22px;
     padding-bottom: 22px;
+    @include adaptiv-value(font-size, 20, 18, 1);
     font-weight: 550;
     line-height: 100%;
     text-align: center;
@@ -49,7 +50,6 @@
     background-color: #0084ff;
     transition: all 0.3s linear;
     cursor: pointer;
-    @include adaptiv-value(font-size, 20, 18, 1);
 
     &::after {
       background-image: url('./../img/arrow_right_white.svg');

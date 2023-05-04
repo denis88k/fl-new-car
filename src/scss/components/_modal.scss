@@ -26,24 +26,33 @@
 
   &__close {
     position: absolute;
-    right: -12px;
+    right: -52px;
     top: 5px;
     cursor: pointer;
+    @include adaptiv-value(width, 40, 35, 1);
+    @include adaptiv-value(height, 40, 35, 1);
+    @media screen and (width <= 730px) {
+      right: 15px;
+      top: -53px;
+    }
   }
 
   &__title {
     font-weight: 550;
-    font-size: 43px;
+    @include adaptiv-value(font-size, 43, 28, 1);
     line-height: 105%;
     text-align: center;
     color: #31333e;
+    @media screen and (width <= 750px) {
+      font-weight: 700;
+    }
   }
 
   &__subtitle {
     margin-top: 12px;
     margin-bottom: 40px;
+    @include adaptiv-value(font-size, 20, 17, 1);
     font-weight: 400;
-    font-size: 20px;
     line-height: 135%;
     text-align: center;
     color: #90929a;
@@ -53,11 +62,12 @@
   &.active {
     position: fixed;
     display: flex;
+    overflow-y: scroll;
     background-color: rgb(0 0 0 / 30%);
 
     // анимация для появления содержимого блока
     & .modal__inner {
-      animation-name: show_anim;
+      animation-name: show_modal;
       animation-duration: 0.7s;
       animation-timing-function: ease;
       animation-fill-mode: forwards;
@@ -65,7 +75,5 @@
   }
 }
 
-.close-icon {
-  width: 40px;
-  height: 40px;
-}
+// .modal .modal__close {
+// }

@@ -28,16 +28,22 @@
   }
 
   &__text {
+    $padding: 54px;
     border-top: 1px solid rgb(228 228 228 / 70%);
     padding-top: 12px;
     @include adaptiv-value(padding-bottom, 30, 15, 1);
-    padding-right: 54px;
-    padding-left: 54px;
+    padding-right: $padding;
+    padding-left: $padding;
     font-weight: 400;
     font-size: 14px;
     line-height: 135%;
     text-align: center;
     color: #838383;
+    @media screen and (width <= 750px) {
+      $padding: 25px;
+      padding-right: $padding;
+      padding-left: $padding;
+    }
   }
 
   &__price,
