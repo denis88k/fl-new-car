@@ -10,11 +10,10 @@
   }
 
   &__consultant-img {
-    @include adaptiv-value(max-width, 100, 80, 1);
     display: flex;
     align-items: center;
     border-radius: 50%;
-    width: 100%;
+    @include adaptiv-value(width, 100, 80, 1);
     @include adaptiv-value(height, 100, 80, 1);
     @include adaptiv-value(margin-right, 25, 15, 1);
   }

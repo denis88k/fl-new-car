@@ -29,15 +29,15 @@
     align-items: flex-start;
     justify-content: center;
     border-radius: 20px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 40px;
-    padding-right: 10px;
-    @include adaptiv-value(max-width, 453, 345, 1);
+    padding: 40px 10px 40px 40px;
     width: 100%;
     background-color: white;
     transition: all 0.3s ease;
     cursor: pointer;
+    @include adaptiv-value(max-width, 453, 345, 1);
+    @media screen and (width <= 450px) {
+      padding: 20px 10px 40px 25px;
+    }
   }
 
   //   &__footer-img {

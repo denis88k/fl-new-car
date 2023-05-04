@@ -488,6 +488,145 @@ body._lock {
     color: #90929a;
   }
 }
+.consultant_sticky {
+  left: 0;
+  right: 0;
+  top: -100%;
+  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.07);
+  background-color: white;
+  transition: top 1s linear;
+  border-bottom-left-radius: 99px;
+  border-bottom-right-radius: 99px;
+}
+@media (max-width: 1420px) {
+  .consultant_sticky {
+    border-bottom-left-radius: calc(40px + 59 * ((100vw - 320px) / 1100));
+  }
+}
+@media (max-width: 1420px) {
+  .consultant_sticky {
+    border-bottom-right-radius: calc(40px + 59 * ((100vw - 320px) / 1100));
+  }
+}
+.consultant_sticky.show {
+  position: fixed;
+  top: 0;
+}
+.consultant_sticky-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media screen and (width <= 1470px) {
+  .consultant_sticky-inner {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+@media screen and (width <= 750px) {
+  .consultant_sticky-inner {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media screen and (width <= 500px) {
+  .consultant_sticky-inner {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+}
+.consultant_sticky-block {
+  display: flex;
+  align-items: center;
+}
+.consultant_sticky-img {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  margin-right: 25px;
+}
+@media (max-width: 1420px) {
+  .consultant_sticky-img {
+    width: calc(38px + 37 * ((100vw - 320px) / 1100));
+  }
+}
+@media (max-width: 1420px) {
+  .consultant_sticky-img {
+    height: calc(38px + 37 * ((100vw - 320px) / 1100));
+  }
+}
+@media (max-width: 1420px) {
+  .consultant_sticky-img {
+    margin-right: calc(10px + 15 * ((100vw - 320px) / 1100));
+  }
+}
+.consultant_sticky-name {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 125%;
+  color: #31333e;
+}
+.consultant_sticky-position {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 135%;
+  color: #8d8d8d;
+}
+.consultant_sticky-position.mobil {
+  display: none;
+}
+@media screen and (width <= 750px) {
+  .consultant_sticky-position.mobil {
+    display: block;
+  }
+  .consultant_sticky-position.deskt {
+    display: none;
+  }
+}
+.consultant_sticky__tel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 10px 30px;
+  background-color: #f6f7f8;
+  cursor: pointer;
+}
+@media screen and (width <= 500px) {
+  .consultant_sticky__tel {
+    position: relative;
+    width: 63px;
+    height: 43px;
+    background-color: #e2f1ff;
+  }
+  .consultant_sticky__tel::before {
+    content: "";
+    position: absolute;
+    width: 24.75px;
+    height: 24.75px;
+    background-image: url("./../img/phone.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+.consultant_sticky__tel-link {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 125%;
+  color: #0085ff;
+}
+@media screen and (width <= 500px) {
+  .consultant_sticky__tel-link {
+    display: none;
+  }
+}
+
 .title-main {
   font-size: 30px;
   margin-top: 55px;
@@ -811,17 +950,16 @@ body._lock {
   }
 }
 .chat__consultant-img {
-  max-width: 100px;
   display: flex;
   align-items: center;
   border-radius: 50%;
-  width: 100%;
+  width: 100px;
   height: 100px;
   margin-right: 25px;
 }
 @media (max-width: 1420px) {
   .chat__consultant-img {
-    max-width: calc(80px + 20 * ((100vw - 320px) / 1100));
+    width: calc(80px + 20 * ((100vw - 320px) / 1100));
   }
 }
 @media (max-width: 1420px) {
@@ -1295,19 +1433,21 @@ body._lock {
   align-items: flex-start;
   justify-content: center;
   border-radius: 20px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 40px;
-  padding-right: 10px;
-  max-width: 453px;
+  padding: 40px 10px 40px 40px;
   width: 100%;
   background-color: white;
   transition: all 0.3s ease;
   cursor: pointer;
+  max-width: 453px;
 }
 @media (max-width: 1420px) {
   .promo__footer-block {
     max-width: calc(345px + 108 * ((100vw - 320px) / 1100));
+  }
+}
+@media screen and (width <= 450px) {
+  .promo__footer-block {
+    padding: 20px 10px 40px 25px;
   }
 }
 .promo__footer-img:nth-child(1) {
