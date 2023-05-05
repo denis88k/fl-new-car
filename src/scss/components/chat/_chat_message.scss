@@ -44,6 +44,10 @@
     background-color: #343434;
     opacity: 0;
     @include adaptiv-value(font-size, 20, 18, 1);
+
+    &.msg-show {
+      animation-direction: reverse;
+    }
   }
 
   &__message-print {
@@ -67,7 +71,7 @@
     // отображение элемента
     &.msg-print-show {
       display: block;
-      animation: anim_message_show 0.2s ease forwards;
+      animation: anim_print_show 0.2s ease forwards;
     }
   }
 }
@@ -95,15 +99,13 @@
   }
 
   to {
-    // height: auto;
-    // display: block;
     height: auto;
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-@keyframes anim_message_show {
+@keyframes anim_print_show {
   from {
     opacity: 0;
   }
