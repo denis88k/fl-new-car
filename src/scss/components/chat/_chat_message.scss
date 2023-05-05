@@ -1,19 +1,43 @@
 .chat {
-  &__message {
-    @include adaptiv-value(padding-top, 25, 20, 1);
-    @include adaptiv-value(padding-bottom, 25, 20, 1);
-    @include adaptiv-value(padding-left, 40, 20, 1);
-    @include adaptiv-value(padding-right, 40, 20, 1);
+  // &__message {
+  // }
+  &-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__message-block {
+    display: flex;
+    flex-direction: column;
   }
 
   &__message-consultant {
+    display: none;
     border-radius: 0 50px 50px;
+    height: 0;
     box-shadow: 0 4px 13px rgb(0 0 0 / 7%);
     font-weight: 400;
     font-size: 20px;
     line-height: 135%;
     color: #31333e;
     background-color: white;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.3s ease;
+    @include adaptiv-value(padding-top, 25, 20, 1);
+    @include adaptiv-value(padding-bottom, 25, 20, 1);
+    @include adaptiv-value(padding-left, 40, 20, 1);
+    @include adaptiv-value(padding-right, 40, 20, 1);
+
+    // показывает напечатанное сообщение
+    &.msg-show {
+      display: block;
+      animation-name: anim_show_message;
+      animation-duration: 0.7s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
   }
 
   &__message-client {
@@ -23,5 +47,62 @@
     line-height: 125%;
     color: white;
     background-color: #343434;
+  }
+
+  &__message-print {
+    display: none;
+    align-self: flex-start;
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 18px;
+    color: #7c7c7c;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    & .message-print {
+      clip-path: inset(0 18px 0 0);
+      animation-name: anim_print;
+      animation-duration: 1s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+    }
+
+    // отображение элемента
+    &.msg-print-show {
+      display: block;
+      animation: anim_message_show 0.2s ease forwards;
+    }
+  }
+}
+
+@keyframes anim_print {
+  to {
+    clip-path: inset(0 -10px 0 0);
+  }
+}
+
+@keyframes anim_show_message {
+  from {
+    height: 0;
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    // height: auto;
+    // display: block;
+    height: auto;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes anim_message_show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
