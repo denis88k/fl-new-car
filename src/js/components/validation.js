@@ -19,6 +19,8 @@ const validateForms = form => {
         rule: 'required',
         value: true,
         errorMessage: 'Телефон обязателен!',
+        errorFieldCssClass: 'neverno',
+        successFieldCssClass: ['valid'],
       },
       {
         rule: 'function',
@@ -33,10 +35,12 @@ const validateForms = form => {
       {
         rule: 'minLength',
         value: 3,
+        errorMessage: 'Впишите не менее 3 букв',
       },
       {
         rule: 'maxLength',
         value: 30,
+        errorMessage: 'Впишите не более 30 букв',
       },
       {
         rule: 'required',

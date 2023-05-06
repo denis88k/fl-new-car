@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   src: url("../fonts/HelveticaNeueCyr-Bold.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Bold.woff") format("woff");
   font-family: HelveticaNeueCyr;
@@ -299,40 +298,35 @@ body._lock {
 .form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 @media screen and (width <= 750px) {
   .form {
     min-width: 345px;
   }
 }
-.form__item:nth-child(1) {
+.form__item {
   position: relative;
 }
-.form__item:nth-child(1)::before {
-  content: "Ваш номер телефона";
+.form__item .just-validate-error-label {
   position: absolute;
-  margin-top: -8px;
-  margin-left: 26px;
+  left: 250px;
+  top: 25px;
+  font-size: 20px;
+}
+.form .input__tel {
+  position: relative;
+}
+.form .input__tel ~ .input__tel-text {
+  position: absolute;
+  left: 26px;
+  top: -9px;
   padding: 0 6px;
   font-weight: 400;
   font-size: 14px;
   line-height: 135%;
   color: #838383;
   background-color: white;
-}
-.form__item:nth-child(2) {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-@media (max-width: 1420px) {
-  .form__item:nth-child(2) {
-    margin-top: calc(10px + 5 * ((100vw - 320px) / 1100));
-  }
-}
-@media (max-width: 1420px) {
-  .form__item:nth-child(2) {
-    margin-bottom: calc(10px + 5 * ((100vw - 320px) / 1100));
-  }
 }
 .form__input {
   border: 1.5px solid #efefef;
@@ -343,6 +337,18 @@ body._lock {
   font-size: 20px;
   line-height: 135%;
   color: #31333e;
+}
+.form__input.just-validate-error-field {
+  border: 1.5px solid #b81111;
+}
+.form__input.just-validate-error-field::placeholder {
+  color: #b81111;
+}
+.form__input.just-validate-error-field ~ .input__tel-text {
+  color: #b81111;
+}
+.form__input.just-validate-success-field {
+  border: 1.5px solid #2ccd59;
 }
 .form__item-btn {
   border-radius: 15px;
