@@ -8,3 +8,9 @@ modal('.promo__header-modal-tradIn', '.modal-tradIn', '.modal-tradIn .modal__clo
 modal('.promo__header-modal-discount', '.modal-discount', '.modal-discount .modal__close');
 modal('.promo__header-modal-tiresСasco', '.modal-tiresСasco', '.modal-tiresСasco .modal__close');
 modal('.promo__header-modal-bestPrice', '.modal-bestPrice', '.modal-bestPrice .modal__close');
+
+import validateForms from './components/validation.js';
+
+document.querySelectorAll('.form').forEach(form => {
+  validateForms(form);
+});

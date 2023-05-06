@@ -75,11 +75,16 @@
   }
 }
 
-// .modal .modal__close {
-// }
+.modal-sendForm {
+  & .modal__subtitle {
+    margin-top: 30px;
+    margin-bottom: 5px;
+  }
 
-// для модалки, которое открывается, когда клиент ввёл правильные данные
-// .popup__thanks-show {
-//   opacity: 1;
-//   transform: scale(1);
-// }
+  & .modal__img {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 55px;
+    height: 55px;
+  }
+}

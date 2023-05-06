@@ -1,18 +1,17 @@
-import './vendor/inp.js';
-import './vendor/justValidate.js';
+import './../vendor/inputMask.js';
+import JustValidate from 'just-validate';
 
-// formSelector - класс формы
+// formSelector --- класс формы
 
-export const validateForms = formSelector => {
-  const form = document?.querySelector(formSelector);
+const validateForms = form => {
   const inputTel = form?.querySelector('input[type="tel"]');
 
-  const validation = new JustValidate(form);
-
   if (inputTel) {
-    const inputMask = new Inputmask('+7 (999) 999-99-99');
+    const inputMask = new Inputmask('+7 (999) 999 - 99 - 99');
     inputMask.mask(inputTel);
   }
+
+  const validation = new JustValidate(form);
 
   validation
     .addField('.input__tel', [
@@ -48,10 +47,34 @@ export const validateForms = formSelector => {
     .onSuccess(event => {
       console.log('Validation passes and form submitted', event);
       event.target.reset();
-      //   при удачной валидации модальное окно закрывается
+      // при удачной валидации модальное окно закрывается
       document.querySelectorAll('.modal').forEach(modal => {
         modal.classList.contains('active') && modal.classList.remove('active') && body.classList.remove('_lock');
       });
-      // TODO: добавить после модальное окно о том, что оператор перезвонит
+
+      const body = document.body;
+      const modal = document.querySelector('.modal-sendForm');
+      const btnClose = document.querySelector('.modal-sendForm .modal__close');
+
+      body.classList.add('_lock');
+      modal.classList.add('active');
+
+      btnClose.addEventListener('click', () => {
+        body.classList.remove('_lock');
+        modal.classList.remove('active');
+      });
+
+      modal.addEventListener('click', e => {
+        if (e.target === modal) {
+          body.classList.remove('_lock');
+          modal.classList.remove('active');
+        }
+      });
+      setTimeout(() => {
+        body.classList.remove('_lock');
+        modal.classList.remove('active');
+      }, 5000);
     });
 };
+
+export default validateForms;

@@ -1,7 +1,7 @@
 const modal = (btnOpen, modal, btnClose) => {
-  (btnOpen = document.querySelector(btnOpen)),
-    (modal = document.querySelector(modal)),
-    (btnClose = document.querySelector(btnClose));
+  btnOpen = document.querySelector(btnOpen);
+  modal = document.querySelector(modal);
+  btnClose = document.querySelector(btnClose);
   const body = document.body;
 
   btnOpen.addEventListener('click', e => {

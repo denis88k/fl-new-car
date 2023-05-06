@@ -99,7 +99,7 @@ const chatLogic = numberChat => {
         msgPrint.classList.remove('msg-print-show');
         msgConsult.classList.add('msg-show');
         numberChat && scrollMsg(msgConsult);
-        console.log(msgConsult, msgConsult.offsetHeight);
+        // console.log(msgConsult, msgConsult.offsetHeight);
       }, 2500);
     }, index * 2500 + 550);
   });
@@ -110,6 +110,9 @@ const chatLogic = numberChat => {
     msgBlocksChoice?.classList.add('msg-show');
     // numberChat && chat.scrollIntoView(scrollIntoViewOptionsChat);
     numberChat && scrollChat(chat);
+    if (numberChat === 3) {
+      document.querySelector('.promo__footer-inner').classList.add('active');
+    }
   }, 2500 * msgBlocks.length + 950);
 
   // блоки c выбором за которыми нужно следить
@@ -124,7 +127,7 @@ const chatLogic = numberChat => {
       msgAnswer.innerHTML = e.currentTarget.dataset[arrMsgBlock[numberChat]];
       document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
       // scrollMsg(msgPrint);
-      console.log(numberChat, 'in');
+      // console.log(numberChat, 'in');
       blocksChoice.forEach(block => block.removeEventListener('click', blockChoiceClick));
       numberChat++;
       chatLogic(numberChat);
@@ -133,9 +136,6 @@ const chatLogic = numberChat => {
     blocksChoice.forEach(block => {
       block.addEventListener('click', blockChoiceClick);
     });
-  }
-  if (numberChat === 3) {
-    document.querySelector('.promo__footer-inner').classList.add('active');
   }
 };
 

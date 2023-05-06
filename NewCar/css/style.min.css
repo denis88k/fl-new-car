@@ -285,6 +285,17 @@ body._lock {
   animation-fill-mode: forwards;
 }
 
+.modal-sendForm .modal__subtitle {
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+.modal-sendForm .modal__img {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 55px;
+  height: 55px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
