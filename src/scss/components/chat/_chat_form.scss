@@ -6,7 +6,6 @@
     margin-top: 50px;
     border-top: 1px solid #f4f6f7;
     @include adaptiv-value(padding-top, 50, 38, 1);
-    @include adaptiv-value(margin-bottom, 70, 15, 1);
 
     @media screen and (width <= 750px) {
       flex-direction: column;

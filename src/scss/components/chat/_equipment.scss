@@ -70,6 +70,7 @@
     color: #0084ff;
     background-color: #e2f1ff;
     transition: all 0.3s ease;
+    cursor: pointer;
   }
 
   &__block:hover {
@@ -88,7 +89,7 @@
     }
   }
 
-  &__block.equipment-active {
+  &__block.active {
     background-color: #e2f1ff;
 
     .equipment {

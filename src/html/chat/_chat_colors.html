@@ -1,1 +1,21 @@
-@include('./_colors.html')
+<div class="chat-messages" data-chat="2">
+  @include('./_chat_message-consul.html',
+  {
+  'text':
+  'Зафиксировала! Теперь давайте подберем цвет авто'
+  })
+
+  @include('./_chat_message-consul.html',
+  {
+  'text':
+  'Выберите цвет автомобиля'
+  })
+
+  @include('./_colors.html')
+
+  @include('./_chat_message-client.html',
+  {
+  'text':
+  'Белый'
+  })
+</div>

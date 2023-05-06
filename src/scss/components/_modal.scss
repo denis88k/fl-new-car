@@ -1,9 +1,6 @@
 .modal {
-  z-index: 2;
+  z-index: -100;
   display: none;
-  align-items: center;
-  justify-content: center;
-
   transition: all 0.3s ease;
   inset: 0;
 
@@ -61,7 +58,10 @@
   // открытое модальное окно
   &.active {
     position: fixed;
+    z-index: 2;
     display: flex;
+    align-items: center;
+    justify-content: center;
     overflow-y: scroll;
     background-color: rgb(0 0 0 / 30%);
 
@@ -76,4 +76,10 @@
 }
 
 // .modal .modal__close {
+// }
+
+// для модалки, которое открывается, когда клиент ввёл правильные данные
+// .popup__thanks-show {
+//   opacity: 1;
+//   transform: scale(1);
 // }

@@ -1,17 +1,18 @@
 .consultant {
   &_sticky {
+    position: absolute;
     left: 0;
     right: 0;
-    top: -100%;
     box-shadow: 0 4px 13px rgb(0 0 0 / 7%);
     background-color: white;
-    transition: top 1s linear;
+    transform: translateY(-100%);
+    transition: all 0.3s linear;
     @include adaptiv-value(border-bottom-left-radius, 99, 40, 1);
     @include adaptiv-value(border-bottom-right-radius, 99, 40, 1);
 
     &.show {
       position: fixed;
-      top: 0;
+      transform: translateY(0);
     }
   }
 

@@ -184,10 +184,8 @@ body._lock {
   }
 }
 .modal {
-  z-index: 2;
+  z-index: -100;
   display: none;
-  align-items: center;
-  justify-content: center;
   transition: all 0.3s ease;
   inset: 0;
 }
@@ -273,7 +271,10 @@ body._lock {
 }
 .modal.active {
   position: fixed;
+  z-index: 2;
   display: flex;
+  align-items: center;
+  justify-content: center;
   overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -489,12 +490,13 @@ body._lock {
   }
 }
 .consultant_sticky {
+  position: absolute;
   left: 0;
   right: 0;
-  top: -100%;
   box-shadow: 0 4px 13px rgba(0, 0, 0, 0.07);
   background-color: white;
-  transition: top 1s linear;
+  transform: translateY(-100%);
+  transition: all 0.3s linear;
   border-bottom-left-radius: 99px;
   border-bottom-right-radius: 99px;
 }
@@ -510,7 +512,7 @@ body._lock {
 }
 .consultant_sticky.show {
   position: fixed;
-  top: 0;
+  transform: translateY(0);
 }
 .consultant_sticky-inner {
   display: flex;
@@ -884,7 +886,6 @@ body._lock {
   padding-left: 120px;
   padding-right: 120px;
   margin-top: 90px;
-  margin-bottom: 70px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 100px;
@@ -892,6 +893,7 @@ body._lock {
   max-width: 940px;
   box-shadow: 0 -5px 0 #0084ff;
   background-color: white;
+  transition: all 0.3s ease;
 }
 @media (max-width: 940px) {
   .chat__container {
@@ -909,19 +911,27 @@ body._lock {
 }
 @media (max-width: 1420px) {
   .chat__container {
-    margin-bottom: calc(15px + 55 * ((100vw - 320px) / 1100));
-  }
-}
-@media (max-width: 1420px) {
-  .chat__container {
     border-radius: calc(40px + 60 * ((100vw - 320px) / 1100));
   }
 }
 .chat__inner {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  padding-top: 55px;
+  padding-bottom: 70px;
   width: 100%;
+  transition: all 0.3s ease;
+  row-gap: 20px;
+}
+@media (max-width: 1420px) {
+  .chat__inner {
+    padding-top: calc(25px + 30 * ((100vw - 320px) / 1100));
+  }
+}
+@media (max-width: 1420px) {
+  .chat__inner {
+    padding-bottom: calc(15px + 55 * ((100vw - 320px) / 1100));
+  }
 }
 @media (max-width: 1420px) {
   .chat__inner {
@@ -932,16 +942,17 @@ body._lock {
   animation-delay: 0.5s;
 }
 
+.total-price {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 135%;
+  color: #0084ff;
+}
+
 .chat__consultant-inner {
   display: flex;
   align-items: center;
-  margin-top: 55px;
   margin-bottom: 35px;
-}
-@media (max-width: 1420px) {
-  .chat__consultant-inner {
-    margin-top: calc(25px + 30 * ((100vw - 320px) / 1100));
-  }
 }
 @media (max-width: 1420px) {
   .chat__consultant-inner {
@@ -1005,9 +1016,149 @@ body._lock {
   }
 }
 
-.car__card-blocks {
-  display: none;
-  height: 0;
+.msg-blocks-choice {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.chat__message {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+@media (max-width: 1420px) {
+  .chat__message {
+    padding-top: calc(20px + 5 * ((100vw - 320px) / 1100));
+  }
+}
+@media (max-width: 1420px) {
+  .chat__message {
+    padding-bottom: calc(20px + 5 * ((100vw - 320px) / 1100));
+  }
+}
+@media (max-width: 1420px) {
+  .chat__message {
+    padding-left: calc(20px + 20 * ((100vw - 320px) / 1100));
+  }
+}
+@media (max-width: 1420px) {
+  .chat__message {
+    padding-right: calc(20px + 20 * ((100vw - 320px) / 1100));
+  }
+}
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  gap: 20px;
+}
+.chat__message-block {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s linear;
+}
+.chat__message-consultant {
+  position: absolute;
+  align-self: flex-start;
+  border-radius: 0 50px 50px;
+  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.07);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 135%;
+  color: #31333e;
+  background-color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.chat__message-client {
+  position: absolute;
+  align-self: flex-end;
+  border-radius: 50px 0 50px 50px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 135%;
+  color: white;
+  background-color: #343434;
+  opacity: 0;
+  visibility: hidden;
+}
+@media (max-width: 1420px) {
+  .chat__message-client {
+    font-size: calc(18px + 2 * ((100vw - 320px) / 1100));
+  }
+}
+.chat__message-print {
+  position: absolute;
+  align-self: flex-start;
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 18px;
+  color: #7c7c7c;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.chat__message-print .message-print {
+  clip-path: inset(0 18px 0 0);
+  animation-name: anim_print;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+.chat__message-print.msg-print-show {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  animation: anim_show_message 0.2s ease forwards;
+}
+
+.msg-show {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  animation-name: anim_show_message;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.msg-show-client {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  animation-name: anim_show_message-client;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes anim_print {
+  to {
+    clip-path: inset(0 -10px 0 0);
+  }
+}
+@keyframes anim_show_message {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes anim_show_message-client {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 .car__card-inner {
   display: flex;
@@ -1075,7 +1226,10 @@ body._lock {
   color: #0084ff;
 }
 .car__card-block.active .car__card-img {
-  background-color: #f6f7f8;
+  background-color: #e2f1ff;
+}
+.car__card-block.active .car__card-title {
+  color: #0084ff;
 }
 
 .equipment__blocks {
@@ -1178,6 +1332,7 @@ body._lock {
   color: #0084ff;
   background-color: #e2f1ff;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 @media (max-width: 1420px) {
   .equipment__btn {
@@ -1194,14 +1349,14 @@ body._lock {
 .equipment__block:hover .equipment__title, .equipment__block:hover .equipment__item {
   color: #0084ff;
 }
-.equipment__block.equipment-active {
+.equipment__block.active {
   background-color: #e2f1ff;
 }
-.equipment__block.equipment-active .equipment__btn {
+.equipment__block.active .equipment__btn {
   color: white;
   background-color: #0084ff;
 }
-.equipment__block.equipment-active .equipment__title, .equipment__block.equipment-active .equipment__item {
+.equipment__block.active .equipment__title, .equipment__block.active .equipment__item {
   color: #0084ff;
 }
 
@@ -1268,16 +1423,10 @@ body._lock {
   margin-top: 50px;
   border-top: 1px solid #f4f6f7;
   padding-top: 50px;
-  margin-bottom: 70px;
 }
 @media (max-width: 1420px) {
   .chat__form-inner {
     padding-top: calc(38px + 12 * ((100vw - 320px) / 1100));
-  }
-}
-@media (max-width: 1420px) {
-  .chat__form-inner {
-    margin-bottom: calc(15px + 55 * ((100vw - 320px) / 1100));
   }
 }
 @media screen and (width <= 750px) {
@@ -1352,132 +1501,10 @@ body._lock {
   text-align: center;
 }
 
-.chat__message.msg-show {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-@media (max-width: 1420px) {
-  .chat__message.msg-show {
-    padding-top: calc(20px + 5 * ((100vw - 320px) / 1100));
-  }
-}
-@media (max-width: 1420px) {
-  .chat__message.msg-show {
-    padding-bottom: calc(20px + 5 * ((100vw - 320px) / 1100));
-  }
-}
-@media (max-width: 1420px) {
-  .chat__message.msg-show {
-    padding-left: calc(20px + 20 * ((100vw - 320px) / 1100));
-  }
-}
-@media (max-width: 1420px) {
-  .chat__message.msg-show {
-    padding-right: calc(20px + 20 * ((100vw - 320px) / 1100));
-  }
-}
-.chat-messages {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.chat__message-block {
-  display: flex;
-  flex-direction: column;
-}
-.chat__message-consultant {
-  display: none;
-  align-self: flex-start;
-  border-radius: 0 50px 50px;
-  height: 0;
-  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.07);
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 135%;
-  color: #31333e;
-  background-color: white;
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: all 0.3s ease;
-}
-.chat__message-client {
-  display: none;
-  align-self: flex-end;
-  border-radius: 50px 0 50px 50px;
-  height: 0;
-  font-weight: 400;
-  line-height: 135%;
-  color: white;
-  background-color: #343434;
-  opacity: 0;
-  font-size: 20px;
-}
-@media (max-width: 1420px) {
-  .chat__message-client {
-    font-size: calc(18px + 2 * ((100vw - 320px) / 1100));
-  }
-}
-.chat__message-client.msg-show {
-  animation-direction: reverse;
-}
-.chat__message-print {
-  display: none;
-  align-self: flex-start;
-  margin-top: 20px;
-  font-style: italic;
-  font-size: 18px;
-  color: #7c7c7c;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-.chat__message-print .message-print {
-  clip-path: inset(0 18px 0 0);
-  animation-name: anim_print;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
-}
-.chat__message-print.msg-print-show {
-  display: block;
-  animation: anim_print_show 0.2s ease forwards;
-}
-
-.msg-show {
-  display: block;
-  animation-name: anim_show_message;
-  animation-duration: 0.7s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-}
-
-@keyframes anim_print {
-  to {
-    clip-path: inset(0 -10px 0 0);
-  }
-}
-@keyframes anim_show_message {
-  from {
-    height: 0;
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    height: auto;
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes anim_print_show {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .promo__footer-inner {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
   margin-top: 60px;
   margin-bottom: 70px;
 }
@@ -1489,6 +1516,27 @@ body._lock {
 @media (max-width: 1420px) {
   .promo__footer-inner {
     margin-bottom: calc(20px + 50 * ((100vw - 320px) / 1100));
+  }
+}
+.promo__footer-inner.active {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  animation-name: anim_show_promo_actual;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+@keyframes anim_show_promo_actual {
+  from {
+    height: 0;
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    height: auto;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 .promo__footer-title {

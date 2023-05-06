@@ -1,8 +1,8 @@
 .car {
-  &__card-blocks {
-    display: none;
-    height: 0;
-  }
+  // &__card-blocks {
+  //   display: none;
+  //   height: 0;
+  // }
 
   &__card-inner {
     display: flex;
@@ -77,7 +77,11 @@
   &__card-block.active {
     .car {
       &__card-img {
-        background-color: #f6f7f8;
+        background-color: #e2f1ff;
+      }
+
+      &__card-title {
+        color: #0084ff;
       }
     }
   }

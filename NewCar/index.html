@@ -62,7 +62,6 @@
       <section class="chat show_anim">
   <div class="chat__container">
     <div class="chat__inner">
-
       <div class="chat__consultant">
   <div class="chat__consultant-inner">
     <div class="chat__consultant-img">
@@ -100,9 +99,9 @@
   <p class="chat__message chat__message-consultant">Какую модель автомобиля вы рассматриваете? Выберите модель из списка, нажав на нее:</p>
 </div>
 
-  <div class="chat__car-card car__card-blocks">
+  <div class="chat__car-card car__card-blocks msg-blocks-choice">
   <div class="car__card-inner">
-    <div class="car__card-block" data-car="Tivoli-1">
+    <div class="car__card-block block-choice" data-car="Tivoli-1">
       <div class="car__card-img">
         <picture><source srcset="./img/car-sale.webp" type="image/webp"><img src="./img/car-sale.png" alt="car"></picture>
       </div>
@@ -118,7 +117,8 @@
         от <span class='price-car'>1 149 000</span> р
       </p>
     </div>
-    <div class="car__card-block" data-car="Tivoli-2">
+
+    <div class="car__card-block block-choice" data-car="Tivoli-2">
       <div class="car__card-img">
         <picture><source srcset="./img/car-sale.webp" type="image/webp"><img src="./img/car-sale.png" alt="car"></picture>
       </div>
@@ -134,7 +134,8 @@
         от <span class='price-car'>2 149 000</span> р
       </p>
     </div>
-    <div class="car__card-block" data-car="Tivoli-3">
+
+    <div class="car__card-block block-choice" data-car="Tivoli-3">
       <div class="car__card-img">
         <picture><source srcset="./img/car-sale.webp" type="image/webp"><img src="./img/car-sale.png" alt="car"></picture>
       </div>
@@ -150,7 +151,8 @@
         от <span class='price-car'>14 149 000</span> р
       </p>
     </div>
-    <div class="car__card-block" data-car="Tivoli-4">
+
+    <div class="car__card-block block-choice" data-car="Tivoli-4">
       <div class="car__card-img">
         <picture><source srcset="./img/car-sale.webp" type="image/webp"><img src="./img/car-sale.png" alt="car"></picture>
       </div>
@@ -166,7 +168,8 @@
         от <span class='price-car'>15 149 000</span> р
       </p>
     </div>
-    <div class="car__card-block" data-car="Tivoli-5">
+
+    <div class="car__card-block block-choice" data-car="Tivoli-5">
       <div class="car__card-img">
         <picture><source srcset="./img/car-sale.webp" type="image/webp"><img src="./img/car-sale.png" alt="car"></picture>
       </div>
@@ -189,10 +192,25 @@
   <p class='chat__message chat__message-client'>
   Tivoli
 </p>
+</div> <!--0 -->
+      <div class="chat-messages" data-chat="1">
+  <div class="chat__message-block">
+  <div class="chat__message-print">
+    <span class="message-print">Ольга печатает ...</span>
+  </div>
+  <p class="chat__message chat__message-consultant">С этой моделью в подарок идет КАСКО и резина! Отличный выбор!</p>
 </div>
-      <div class='chat__equipment equipment'>
+
+  <div class="chat__message-block">
+  <div class="chat__message-print">
+    <span class="message-print">Ольга печатает ...</span>
+  </div>
+  <p class="chat__message chat__message-consultant">Теперь давайте подберем подходящую комплектацию</p>
+</div>
+
+  <div class='chat__equipment equipment msg-blocks-choice'>
   <div class="equipment__blocks">
-    <div class="equipment__block">
+    <div class="equipment__block block-choice" data-equipment='Welcome 1.6 л. 6МКП (128 л.с)'>
   <h4 class="equipment__title">Welcome 1.6 л. 6МКП (128 л.с)</h4>
   <ul class="equipment__list">
     <li class="equipment__item">Фронтальные подушки</li>
@@ -202,7 +220,7 @@
   </ul>
   <button class="equipment__btn">Выбрать за 1 069 000 руб.</button>
 </div>
-    <div class="equipment__block">
+    <div class="equipment__block block-choice" data-equipment='Original 1.6 л. 6AКП (128 л.с)'>
   <h4 class="equipment__title">Original 1.6 л. 6AКП (128 л.с)</h4>
   <ul class="equipment__list">
     <li class="equipment__item">Фронтальные подушки безопасности водителя и переднего пассажира</li>
@@ -212,7 +230,7 @@
   </ul>
   <button class="equipment__btn">Выбрать за 1 069 000 руб.</button>
 </div>
-    <div class="equipment__block">
+    <div class="equipment__block block-choice" data-equipment='Style 1.6 л. 6МКП (128 л.с)'>
   <h4 class="equipment__title">Style 1.6 л. 6МКП (128 л.с)</h4>
   <ul class="equipment__list">
     <li class="equipment__item">Передние и задние дисковые тормоза</li>
@@ -226,42 +244,87 @@
 
 
 </div>
-      <div class="chat__colors">
+
+  <p class='chat__message chat__message-client'>
+  Welcome 1.6 л. 6МКП (128 л.с)
+</p>
+</div><!--1 -->
+      <div class="chat-messages" data-chat="2">
+  <div class="chat__message-block">
+  <div class="chat__message-print">
+    <span class="message-print">Ольга печатает ...</span>
+  </div>
+  <p class="chat__message chat__message-consultant">Зафиксировала! Теперь давайте подберем цвет авто</p>
+</div>
+
+  <div class="chat__message-block">
+  <div class="chat__message-print">
+    <span class="message-print">Ольга печатает ...</span>
+  </div>
+  <p class="chat__message chat__message-consultant">Выберите цвет автомобиля</p>
+</div>
+
+  <div class="chat__colors msg-blocks-choice">
   <div class="color__blocks">
-    <div class="color__block" data-color="Красный">
+    <div class="color__block block-choice" data-color="Красный">
       <div class="color__block-sqr" style="background-color: #ff0000"></div>
       <p class="color__block-text" data-color="red">Красный</p>
     </div>
 
-    <div class="color__block" data-color="Черный">
+    <div class="color__block block-choice" data-color="Черный">
       <div class="color__block-sqr" style="background-color: #000000"></div>
       <p class="color__block-text" data-color="red">Черный</p>
     </div>
-
-    <div class="color__block" data-color="Белый">
+    <div class="color__block block-choice" data-color="Белый">
       <div class="color__block-sqr" style="background-color: #ffffff"></div>
       <p class="color__block-text" data-color="red">Белый</p>
     </div>
-    <div class="color__block" data-color="Оранжевый">
+    <div class="color__block block-choice" data-color="Оранжевый">
       <div class="color__block-sqr" style="background-color: #ff6b00"></div>
       <p class="color__block-text" data-color="red">Оранжевый</p>
     </div>
-    <div class="color__block" data-color="Серый">
+    <div class="color__block block-choice" data-color="Серый">
       <div class="color__block-sqr" style="background-color: #666666"></div>
       <p class="color__block-text" data-color="red">Серый</p>
     </div>
-    <div class="color__block" data-color="Серебристый">
+    <div class="color__block block-choice" data-color="Серебристый">
       <div class="color__block-sqr" style="background-color: #aaaaaa"></div>
       <p class="color__block-text" data-color="red">Серебристый</p>
     </div>
-    <div class="color__block" data-color="Синий">
+    <div class="color__block block-choice" data-color="Синий">
       <div class="color__block-sqr" style="background-color: #0b58cc"></div>
       <p class="color__block-text" data-color="red">Синий</p>
     </div>
   </div>
 </div>
 
-      <section class='chat__form'>
+  <p class='chat__message chat__message-client'>
+  Белый
+</p>
+</div><!--2 -->
+      <div class="chat-messages" data-chat="3">
+  <div class="chat__message-block">
+  <div class="chat__message-print">
+    <span class="message-print">Ольга печатает ...</span>
+  </div>
+  <p class="chat__message chat__message-consultant">Предварительная стоимость Xlv - <span class='total-price'>от 1 289 000 руб.</span></p>
+</div>
+
+  <div class="chat__message-block">
+  <div class="chat__message-print">
+    <span class="message-print">Ольга печатает ...</span>
+  </div>
+  <p class="chat__message chat__message-consultant">Я рассчитаю точную стоимость Xlv с учетом выбранных опций. Перезвоню через 2-3 минуты.</p>
+</div>
+
+  <div class="chat__message-block">
+  <div class="chat__message-print">
+    <span class="message-print">Ольга печатает ...</span>
+  </div>
+  <p class="chat__message chat__message-consultant">Оставьте Ваш номер телефона</p>
+</div>
+
+  <section class='chat__form msg-blocks-choice'>
   <div class="chat__form-inner">
     <div class="chat__form-block">
       <form class="form">
@@ -287,6 +350,8 @@
     </div>
   </div>
 </section>
+
+</div>
     </div>
   </div>
 </section>
@@ -297,7 +362,7 @@
         Актуальные акции автосалона
       </h2>
       <div class="promo__footer-blocks">
-        <div class="promo__footer-block promo__header-modal-discount">
+        <div class="promo__footer-block promo__header-modal-tiresСasco">
           <div class="promo__footer-img">
             <picture><source srcset="./img/present.webp" type="image/webp"><img src="./img/present.jpg" alt="present"></picture>
           </div>
@@ -306,7 +371,7 @@
           </h3>
           <div class="promo__head-btn promo-btn arrow-right">Подробнее</div>
         </div>
-        <div class="promo__footer-block promo__header-modal-tiresСasco">
+        <div class="promo__footer-block promo__header-modal-bestPrice">
           <div class="promo__footer-img">
             <picture><source srcset="./img/finger_up.webp" type="image/webp"><img src="./img/finger_up.jpg" alt="finger"></picture>
           </div>
@@ -315,7 +380,7 @@
           </h3>
           <div class="promo__head-btn promo-btn arrow-right">Подробнее</div>
         </div>
-        <div class="promo__footer-block promo__header-modal-bestPrice">
+        <div class="promo__footer-block promo__header-modal-discount">
           <div class="promo__footer-img">
             <picture><source srcset="./img/ten.webp" type="image/webp"><img src="./img/ten.jpg" alt="ten"></picture>
           </div>
@@ -329,7 +394,6 @@
   </div>
 </section>
     </main>
-
 
     <footer class='footer'>
   <div class="container">

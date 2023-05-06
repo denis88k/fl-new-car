@@ -5,7 +5,6 @@
     @include adaptiv-value-in-min(padding-left, 120, 15, 940, 375);
     @include adaptiv-value-in-min(padding-right, 120, 15, 940, 375);
     margin-top: 90px;
-    @include adaptiv-value(margin-bottom, 70, 15, 1);
     margin-right: auto;
     margin-left: auto;
     @include adaptiv-value(border-radius, 100, 40, 1);
@@ -13,16 +12,28 @@
     max-width: 940px;
     box-shadow: 0 -5px 0 #0084ff;
     background-color: white;
+    transition: all 0.3s ease;
   }
 
   &__inner {
     display: flex;
     flex-direction: column;
-    @include adaptiv-value(row-gap, 20, 15, 1);
+    @include adaptiv-value(padding-top, 55, 25, 1);
+    @include adaptiv-value(padding-bottom, 70, 15, 1);
     width: 100%;
+    transition: all 0.3s ease;
+    @include adaptiv-value(row-gap, 20, 15, 1);
   }
 
   &.show_anim {
     animation-delay: 0.5s;
   }
+}
+
+.total-price {
+  // font-family: HelveticaNeueCyr;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 135%;
+  color: #0084ff;
 }

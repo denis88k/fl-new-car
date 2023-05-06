@@ -1,1 +1,21 @@
-@include('./_equipment.html')
+<div class="chat-messages" data-chat="1">
+  @include('./_chat_message-consul.html',
+  {
+  'text':
+  'С этой моделью в подарок идет КАСКО и резина! Отличный выбор!'
+  })
+
+  @include('./_chat_message-consul.html',
+  {
+  'text':
+  'Теперь давайте подберем подходящую комплектацию'
+  })
+
+  @include('./_equipment.html')
+
+  @include('./_chat_message-client.html',
+  {
+  'text':
+  'Welcome 1.6 л. 6МКП (128 л.с)'
+  })
+</div>

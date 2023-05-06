@@ -1,1 +1,22 @@
-@include('./_form_discount.html')
+<div class="chat-messages" data-chat="3">
+  @include('./_chat_message-consul.html',
+  {
+  'text':
+  "Предварительная стоимость Xlv - <span class='total-price'>от 1 289 000 руб.</span>"
+  })
+
+  @include('./_chat_message-consul.html',
+  {
+  'text':
+  "Я рассчитаю точную стоимость Xlv с учетом выбранных опций. Перезвоню через 2-3 минуты."
+  })
+
+  @include('./_chat_message-consul.html',
+  {
+  'text':
+  "Оставьте Ваш номер телефона"
+  })
+
+  @include('./_form_discount.html')
+
+</div>

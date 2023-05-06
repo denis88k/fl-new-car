@@ -1,7 +1,33 @@
 .promo {
   &__footer-inner {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
     @include adaptiv-value(margin-top, 60, 40, 1);
     @include adaptiv-value(margin-bottom, 70, 20, 1);
+
+    &.active {
+      height: auto;
+      opacity: 1;
+      visibility: visible;
+      animation-name: anim_show_promo_actual;
+      animation-duration: 0.7s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+      @keyframes anim_show_promo_actual {
+        from {
+          height: 0;
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+
+        to {
+          height: auto;
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
   }
 
   &__footer-title {
