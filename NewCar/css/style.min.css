@@ -1537,6 +1537,7 @@ body._lock {
   left: 26px;
   top: -30px;
   font-size: 18px;
+  transform: translateY(0);
 }
 .chat__form-block .form__item:nth-child(2) .just-validate-error-label {
   top: -20px;
