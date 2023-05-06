@@ -3,7 +3,7 @@
     display: flex;
     column-gap: 30px;
     justify-content: space-between;
-    margin-top: 50px;
+    @include adaptiv-value(margin-top, 35, 15, 1);
     border-top: 1px solid #f4f6f7;
     @include adaptiv-value(padding-top, 50, 38, 1);
 
@@ -21,6 +21,18 @@
 
       &:nth-child(1) {
         max-width: 375px;
+      }
+    }
+
+    .just-validate-error-label {
+      left: 26px;
+      top: -30px;
+      font-size: 18px;
+    }
+
+    .form__item:nth-child(2) {
+      .just-validate-error-label {
+        top: -20px;
       }
     }
   }

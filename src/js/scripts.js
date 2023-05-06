@@ -77,7 +77,7 @@ const scrollChat = chat => {
 };
 
 let numberChat = 0;
-const arrMsgBlock = ['car', 'equipment', 'color'];
+// const arrMsgBlock = ['car', 'equipment', 'color'];
 
 const chatLogic = numberChat => {
   const chat = document.querySelector(`.chat-messages[data-chat="${numberChat}"]`);
@@ -124,7 +124,7 @@ const chatLogic = numberChat => {
       // console.log(e.currentTarget.dataset.car);
       msgAnswer.classList.add('msg-show-client');
       e.currentTarget.classList.add('active');
-      msgAnswer.innerHTML = e.currentTarget.dataset[arrMsgBlock[numberChat]];
+      msgAnswer.innerHTML = e.currentTarget.dataset.choice;
       document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
       // scrollMsg(msgPrint);
       // console.log(numberChat, 'in');

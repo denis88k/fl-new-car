@@ -55,6 +55,59 @@
     color: #90929a;
   }
 
+  &-payment {
+    .modal__inner {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 70%;
+        display: block;
+        width: 380px;
+        height: 243px;
+        background-image: url('./../img/car.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      &::before {
+        left: -380px;
+        transform: translate(0, -70%);
+
+        // right: 0;
+      }
+
+      &::after {
+        right: -380px;
+        transform: translate(0, -70%) scale(-1, 1);
+      }
+    }
+  }
+
+  &-tradIn {
+    .modal__inner {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        @include adaptiv-value(left, -95, 0, 1);
+        @include adaptiv-value(bottom, -82, -130, 1);
+        z-index: 2;
+        display: block;
+        width: 250px;
+        height: 152px;
+        background-image: url('./../img/arrow_around_left.svg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
   // открытое модальное окно
   &.active {
     position: fixed;
@@ -76,6 +129,10 @@
 }
 
 .modal-sendForm {
+  & .modal__inner {
+    padding: 45px;
+  }
+
   & .modal__subtitle {
     margin-top: 30px;
     margin-bottom: 5px;

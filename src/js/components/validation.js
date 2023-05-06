@@ -1,5 +1,5 @@
-import './../vendor/inputMask.js';
 import JustValidate from 'just-validate';
+import './../vendor/inputMask.js';
 
 // formSelector --- класс формы
 
@@ -19,8 +19,6 @@ const validateForms = form => {
         rule: 'required',
         value: true,
         errorMessage: 'Телефон обязателен!',
-        errorFieldCssClass: 'neverno',
-        successFieldCssClass: ['valid'],
       },
       {
         rule: 'function',
