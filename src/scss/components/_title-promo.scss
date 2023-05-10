@@ -2,10 +2,13 @@
   @include adaptiv-value(font-size, 60, 30, 1);
   @include adaptiv-value(margin-top, 55, 34, 1);
   @include adaptiv-value(margin-bottom, 44, 36, 1);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 110%;
   text-align: center;
   color: #31333e;
+  @media screen and (width <= 420px) {
+    font-weight: 700;
+  }
 }
 
 .promo {

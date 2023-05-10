@@ -52,7 +52,7 @@ window.addEventListener('scroll', () => {
 
 const scrollMsg = msgConsult => {
   window.scrollBy({
-    top: msgConsult.offsetHeight,
+    top: msgConsult.offsetHeight, // скролл на высоту сообщения консультанта
     behavior: 'smooth',
   });
 };
@@ -69,23 +69,25 @@ const scrollIntoViewOptions = {
 const scrollChat = chat => {
   const elementPosition = chat.getBoundingClientRect().top; //расстояние от элемента до верхней части экрана
   const consultantSticky = document.querySelector('.consultant_sticky.show');
-  const offsetPosition = elementPosition - consultantSticky.offsetHeight - 25; // насколько нужно скролить
+  const offsetPosition = elementPosition - consultantSticky.offsetHeight; // насколько нужно скролить
   window.scrollBy({
     top: offsetPosition,
     behavior: 'smooth',
   });
 };
 
+// ===========================Логика чата===================
 let numberChat = 0;
 // const arrMsgBlock = ['car', 'equipment', 'color'];
+const chatLength = document.querySelectorAll('.chat-messages').length; // длина блоков чата
 
 const chatLogic = numberChat => {
-  const chat = document.querySelector(`.chat-messages[data-chat="${numberChat}"]`);
-  const msgBlocks = chat.querySelectorAll('.chat__message-block');
+  const chat = document.querySelector(`.chat-messages[data-chat="${numberChat}"]`); // блок чата
+  const msgBlocks = chat.querySelectorAll('.chat__message-block'); // блок сообщений консультанта с анимацией печатания
 
   msgBlocks.forEach((msgBlock, index) => {
-    const msgPrint = msgBlock.querySelector('.chat__message-print');
-    const msgConsult = msgBlock.querySelector('.chat__message-consultant');
+    const msgPrint = msgBlock.querySelector('.chat__message-print'); // анимация печатания
+    const msgConsult = msgBlock.querySelector('.chat__message-consultant'); // сообщение консультанта
 
     setTimeout(() => {
       // добавление надписи о том, что консультант печатает, с задержкой в 550мс
@@ -96,23 +98,24 @@ const chatLogic = numberChat => {
       // показ сообщения от консультанта
       // с задержкой в 2,5с
       setTimeout(() => {
-        msgPrint.classList.remove('msg-print-show');
-        msgConsult.classList.add('msg-show');
-        numberChat && scrollMsg(msgConsult);
+        msgPrint.classList.remove('msg-print-show'); // удаление анимации печатания
+        msgConsult.classList.add('msg-show'); // появление сообщения консультанта
+        numberChat && scrollMsg(msgConsult); // плавный автоматический скролл до сообщения консультанта
         // console.log(msgConsult, msgConsult.offsetHeight);
       }, 2500);
     }, index * 2500 + 550);
   });
 
-  const msgBlocksChoice = chat.querySelector('.msg-blocks-choice');
+  const msgBlocksChoice = chat.querySelector('.msg-blocks-choice'); // блок с выборами
 
   setTimeout(() => {
-    msgBlocksChoice?.classList.add('msg-show');
+    msgBlocksChoice?.classList.add('msg-show'); // блок с выборами появляется
     // numberChat && chat.scrollIntoView(scrollIntoViewOptionsChat);
-    numberChat && scrollChat(chat);
-    if (numberChat === 3) {
+    if (numberChat === chatLength - 1) {
       document.querySelector('.promo__footer-inner').classList.add('active');
+      document.querySelector('.footer').classList.add('active');
     }
+    numberChat && scrollChat(chat); // плавный скролл до начала нового блока чата с отступом
   }, 2500 * msgBlocks.length + 950);
 
   // блоки c выбором за которыми нужно следить
@@ -129,6 +132,7 @@ const chatLogic = numberChat => {
       // scrollMsg(msgPrint);
       // console.log(numberChat, 'in');
       blocksChoice.forEach(block => block.removeEventListener('click', blockChoiceClick));
+      changeChoice(numberChat); // добавление изменения выбора в чате
       numberChat++;
       chatLogic(numberChat);
     };
@@ -140,3 +144,18 @@ const chatLogic = numberChat => {
 };
 
 chatLogic(0);
+
+// const inputs = document.querySelectorAll('.form__input');
+
+const changeChoice = numberChat => {
+  const chatMessages = document.querySelector(`.chat-messages[data-chat="${numberChat}"]`);
+  chatMessages.querySelectorAll('.block-choice')?.forEach(blockChoice => {
+    blockChoice.addEventListener('click', e => {
+      chatMessages.querySelectorAll('.block-choice')?.forEach(blockChoice => {
+        blockChoice.classList.remove('active');
+      });
+      e.currentTarget.classList.add('active');
+      chatMessages.querySelector('.chat__message-client').innerHTML = e.currentTarget.dataset.choice;
+    });
+  });
+};

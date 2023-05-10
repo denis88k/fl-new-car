@@ -3,10 +3,10 @@
     height: 0;
     opacity: 0;
     visibility: hidden;
-    @include adaptiv-value(margin-top, 60, 40, 1);
-    @include adaptiv-value(margin-bottom, 70, 20, 1);
 
     &.active {
+      @include adaptiv-value(margin-top, 60, 40, 1);
+      @include adaptiv-value(margin-bottom, 70, 20, 1);
       height: auto;
       opacity: 1;
       visibility: visible;
@@ -33,10 +33,13 @@
   &__footer-title {
     margin-bottom: 45px;
     @include adaptiv-value(font-size, 50, 32, 1);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 110%;
     text-align: center;
     color: #31333e;
+    @media screen and (width <= 420px) {
+      font-weight: 700;
+    }
   }
 
   &__footer-blocks {

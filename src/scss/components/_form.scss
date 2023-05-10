@@ -44,12 +44,12 @@
     line-height: 135%;
     color: #31333e;
 
-    &:valid {
-      border: 1.5px solid #2ccd59;
-    }
+    // &:valid {
+    //   border-color: #2ccd59;
+    // }
 
     &.just-validate-error-field {
-      border: 1.5px solid #b81111;
+      border-color: #b81111;
 
       &::placeholder {
         color: #b81111;
@@ -61,7 +61,7 @@
     }
 
     &.just-validate-success-field {
-      border: 1.5px solid #2ccd59;
+      border-color: #2ccd59;
 
       ~ .input__tel-text {
         color: #2ccd59;
@@ -73,7 +73,7 @@
     border-radius: 15px;
     padding-top: 22px;
     padding-bottom: 22px;
-    font-weight: 550;
+    font-weight: 500;
     line-height: 100%;
     text-align: center;
     color: white;
@@ -87,7 +87,7 @@
       bottom: 16px;
       display: inline-block;
       @include adaptiv-value(width, 185, 170, 1);
-      height: 2px;
+      height: 1.5px;
       background-color: white;
     }
 
