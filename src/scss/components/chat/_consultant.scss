@@ -2,8 +2,8 @@
   &__consultant-inner {
     display: flex;
     align-items: center;
+    @include adaptiv-value(margin-bottom, 15, 0, 1);
 
-    @include adaptiv-value(margin-bottom, 35, 20, 1);
     @media screen and (width <= 650px) {
       justify-content: space-between;
     }

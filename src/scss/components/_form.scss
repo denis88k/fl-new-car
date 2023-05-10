@@ -44,6 +44,10 @@
     line-height: 135%;
     color: #31333e;
 
+    &:valid {
+      border: 1.5px solid #2ccd59;
+    }
+
     &.just-validate-error-field {
       border: 1.5px solid #b81111;
 
@@ -69,14 +73,23 @@
     border-radius: 15px;
     padding-top: 22px;
     padding-bottom: 22px;
-    @include adaptiv-value(font-size, 20, 18, 1);
     font-weight: 550;
     line-height: 100%;
     text-align: center;
     color: white;
     background-color: #0084ff;
-    transition: all 0.3s linear;
+    transition: all 0.3s ease;
     cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 16px;
+      display: inline-block;
+      @include adaptiv-value(width, 185, 170, 1);
+      height: 2px;
+      background-color: white;
+    }
 
     &::after {
       background-image: url('./../img/arrow_right_white.svg');
@@ -86,6 +99,7 @@
     &:hover {
       background-color: #309bff;
     }
+    @include adaptiv-value(font-size, 20, 18, 1);
   }
 }
 
