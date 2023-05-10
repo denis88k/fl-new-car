@@ -21,7 +21,7 @@ export const html = () => {
           basepath: '@file',
         }),
       )
-      .pipe(webpHtmlNosvg())
+      // .pipe(webpHtmlNosvg())
       // .pipe(
       //   typograf({
       //     locale: ['ru', 'en-US'],

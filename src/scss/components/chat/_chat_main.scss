@@ -22,7 +22,8 @@
     @include adaptiv-value(padding-bottom, 70, 15, 1);
     width: 100%;
     transition: all 0.3s ease;
-    @include adaptiv-value(row-gap, 20, 15, 1);
+
+    // @include adaptiv-value(row-gap, 20, 15, 1);
   }
 
   &.show_anim {

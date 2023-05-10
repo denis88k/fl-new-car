@@ -16,7 +16,6 @@
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
-    gap: 20px;
   }
 
   &__message-block {
@@ -37,7 +36,7 @@
     background-color: white;
     opacity: 0;
     visibility: hidden;
-
+    @include adaptiv-value(margin-bottom, 20, 15, 1);
     // transform: translateX(-40px);
     transition: all 0.3s ease;
   }
@@ -45,6 +44,8 @@
   &__message-client {
     position: absolute;
     align-self: flex-end;
+    @include adaptiv-value(margin-top, 30, 20, 1);
+    @include adaptiv-value(margin-bottom, 20, 15, 1);
     border-radius: 50px 0 50px 50px;
     @include adaptiv-value(font-size, 20, 18, 1);
     font-weight: 400;

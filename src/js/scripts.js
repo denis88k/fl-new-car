@@ -125,12 +125,15 @@ const chatLogic = numberChat => {
 
   setTimeout(() => {
     msgBlocksChoice?.classList.add('msg-show'); // блок с выборами появляется
+
     // numberChat && chat.scrollIntoView(scrollIntoViewOptionsChat);
     if (numberChat === chatLength - 1) {
       document.querySelector('.promo__footer-inner').classList.add('active');
       document.querySelector('.footer').classList.add('active');
     }
-    numberChat && scrollChat(chat); // плавный скролл до начала нового блока чата с отступом
+    setTimeout(() => {
+      numberChat && scrollChat(chat); // плавный скролл до начала нового блока чата с отступом
+    });
   }, 2500 * msgBlocks.length + 950);
 
   // блоки c выбором за которыми нужно следить

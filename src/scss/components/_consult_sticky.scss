@@ -63,15 +63,15 @@
 
   &_sticky-name {
     @include adaptiv-value(margin-bottom, 5, 0, 1);
+    @include adaptiv-value(font-size, 20, 16, 1);
     font-weight: 700;
-    font-size: 20px;
     line-height: 125%;
     color: #31333e;
   }
 
   &_sticky-position {
     font-weight: 400;
-    font-size: 15px;
+    @include adaptiv-value(font-size, 15, 14, 1);
     line-height: 135%;
     color: #8d8d8d;
 

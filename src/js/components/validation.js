@@ -11,7 +11,10 @@ const validateForms = form => {
     inputMask.mask(inputTel);
   }
 
-  const validation = new JustValidate(form, { validateBeforeSubmitting: true });
+  const validation = new JustValidate(
+    form,
+    // { validateBeforeSubmitting: true }
+  );
 
   validation
     .addField('.input__tel', [

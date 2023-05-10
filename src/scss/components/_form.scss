@@ -35,7 +35,7 @@
   }
 
   &__input {
-    border: 1.5px solid #efefef;
+    border: 2px solid #efefef;
     border-radius: 15px;
     padding: 20px 0 20px 45px;
     width: 100%;
@@ -44,9 +44,9 @@
     line-height: 135%;
     color: #31333e;
 
-    // &:valid {
-    //   border-color: #2ccd59;
-    // }
+    &:focus {
+      border-color: #31333e;
+    }
 
     &.just-validate-error-field {
       border-color: #b81111;
@@ -73,7 +73,7 @@
     border-radius: 15px;
     padding-top: 22px;
     padding-bottom: 22px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 100%;
     text-align: center;
     color: white;
@@ -81,15 +81,15 @@
     transition: all 0.3s ease;
     cursor: pointer;
 
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 16px;
-      display: inline-block;
-      @include adaptiv-value(width, 185, 170, 1);
-      height: 1.5px;
-      background-color: white;
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: 16px;
+    //   display: inline-block;
+    //   @include adaptiv-value(width, 185, 170, 1);
+    //   height: 1.5px;
+    //   background-color: white;
+    // }
 
     &::after {
       background-image: url('./../img/arrow_right_white.svg');
