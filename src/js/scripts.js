@@ -94,8 +94,8 @@ const scrollChat = chat => {
 // };
 
 let numberChat = 0;
-
-const chatLength = document.querySelectorAll('.chat-messages').length; // длина блоков чата
+const chats = document.querySelectorAll('.chat-messages');
+const chatLength = chats.length; // длина блоков чата
 // логика работы
 const chatLogic = numberChat => {
   const chat = document.querySelector(`.chat-messages[data-chat="${numberChat}"]`); // блок чата
@@ -111,7 +111,7 @@ const chatLogic = numberChat => {
       setTimeout(() => {
         !msgPrint.classList.contains('msg-print-show') && msgPrint.classList.add('msg-print-show');
         numberChat && scrollMsg(msgPrint); // плавный автоматический скролл до анимации печатания
-      }, 550);
+      }, 500);
       // скрытие о печатании консультанта
       // показ сообщения от консультанта
       // с задержкой в 2,5с
@@ -146,44 +146,113 @@ const chatLogic = numberChat => {
 
     const clickNextChat = e => {
       // console.log(e.currentTarget.dataset.car);
+      blocksChoice.forEach(block => block.classList.remove('active'));
       e.currentTarget.classList.add('active');
-      msgAnswer.classList.add('msg-show-client');
-      msgAnswer.innerHTML = e.currentTarget.dataset.choice;
+
       document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
       // scrollMsg(msgPrint);
       // console.log(numberChat, 'in');
-      blocksChoice.forEach(block => block.removeEventListener('click', clickNextChat));
+      // blocksChoice.forEach(block => block.removeEventListener('click', clickNextChat));
       // changeChoice(numberChat); // добавление изменения выбора в чате
       // numberChat && changeChoiceReplayChat(numberChat);
-      numberChat++;
-      chatLogic(numberChat);
+      let currentNumber = Number(chat.dataset.chat);
+      console.log(currentNumber, 'chat', numberChat, 'numberChat');
+      if (currentNumber === numberChat) {
+        console.log('currentNumber === numberChat', currentNumber, numberChat);
+
+        msgAnswer.innerHTML = e.currentTarget.dataset.choice;
+        msgAnswer.classList.add('msg-show-client'); // показать сообщение клиента
+        document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
+
+        numberChat++;
+        chatLogic(numberChat);
+      } else {
+        // срабатывает когда нажимаешь на блок с выборами, на другой вариант
+        // и тогда удаляются все активные классы в других темах чата
+        console.log('заново');
+        numberChat && clearTimeout(chatLogic(numberChat));
+        // а теперь пройдёмся по всем темам чата, которые уже открыты
+        for (let i = currentNumber + 1; i < chatLength; i++) {
+          const msgBlocks = chats[i].querySelectorAll('.chat__message-block'); // блок сообщений консультанта + анимация печатания
+          // блоки с анимацией печатания и с сообщениями консультанта
+          msgBlocks.forEach(msgBlock => {
+            const msgPrint = msgBlock.querySelector('.chat__message-print'); // анимация печатания
+            msgPrint.classList.contains('msg-print-show') && msgPrint.classList.add('msg-print-show');
+
+            const msgChatConsultant = msgBlock.querySelector('.chat__message-consultant');
+            msgChatConsultant.classList.contains('msg-show') && msgChatConsultant.classList.remove('msg-show');
+          });
+
+          // блок с выборами
+          const msgBlocksChoice = chats[i].querySelector('.msg-blocks-choice');
+          msgBlocksChoice.classList.contains('msg-show') && msgBlocksChoice?.classList.remove('msg-show');
+
+          // блоки с вариантами выбора
+          const BlocksChoice = msgBlocksChoice.querySelectorAll('.block-choice');
+          if (BlocksChoice) {
+            BlocksChoice.forEach(blockChoice => {
+              blockChoice.classList.contains('active') && blockChoice.classList.remove('active');
+            });
+          }
+
+          // ответы клиента
+          const msgClient = chats[i].querySelector('.chat__message-client'); // сообщение клиента
+          msgClient?.classList.contains('msg-show-client') && msgClient.classList.remove('msg-show-client'); // если ответ клиента отображён, то удалить этот класс
+
+          // если следующая тема чата это последний чат, то нужно скрыть actual-promo и footer
+          if (i === chatLength - 1) {
+            document.querySelector('.promo__footer-inner').classList.remove('active');
+            document.querySelector('.footer').classList.remove('active');
+          }
+        }
+
+        // если ответ клиента отображён, то удалить этот класс:
+        msgAnswer.classList.contains('msg-show-client') && msgAnswer.classList.remove('msg-show-client');
+        msgAnswer.innerHTML = e.currentTarget.dataset.choice;
+        setTimeout(() => {
+          msgAnswer.classList.add('msg-show-client');
+          document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
+          console.log(numberChat, 'новый счёт');
+          chatLogic(numberChat);
+        }, 200);
+
+        // numberChat = currentNumber + 1;
+      }
+      // numberChat++;
+      // console.log(numberChat, 'clickNextChat', currentNumber, 'currentNumber');
+      // chatLogic(numberChat);
     };
 
     blocksChoice.forEach(block => {
       block.addEventListener('click', clickNextChat);
     });
 
-    blocksChoice.forEach(block => {
-      block.addEventListener('click', clickReplayChat);
-    });
+    // blocksChoice.forEach(block => {
+    //   // block.addEventListener('click', clickReplayChat);
+    //   // block.addEventListener('click', () => console.log(numberChat));
+    // });
   }
 };
 
-const clickReplayChat = () => {
-  console.log(numberChat);
-  if (numberChat) {
-    console.log(numberChat, 'clickReplayChat');
-  }
-};
+// const clickReplayChat = e => {
+//   // console.log(numberChat, 'out');
+//   // if (numberChat) {
+//   //   console.log(numberChat, 'clickReplayChat');
+//   // }
+//   console.log(e.currentTarget.parentNode.parentNode.classList.contains('msg-show'));
+// };
 
 // проигрывание темы чата снова, в зависимости от изменения ответа в чате
 // логика при клике на блок с вариантами выбора
-const clickChoiceChangeChat = e => {
+const clickChoiceChangeChat = (e, numberChat) => {
   console.log(numberChat, e.currentTarget.parentNode.parentNode);
+
+  const msgClient = chat.querySelector('.chat__message-client'); // сообщение клиента
+  msgClient.classList.contains('msg-show-client') && msgClient.classList.remove('msg-show-client'); // если ответ клиента отображён, то удалить этот класс
+
   if (numberChat && e.currentTarget.parentNode.parentNode.classList.contains('msg-show')) {
     console.log('сработало условие');
     // удаляю в каждом класс active
-
     // blocksChoice.forEach(blockChoice => {
     //   blockChoice.classList.remove('active');
     // });
@@ -194,28 +263,28 @@ const clickChoiceChangeChat = e => {
     // msgClient.innerHTML = e.currentTarget.dataset.choice;
     // msgClient.classList.add('msg-show-client');
 
-    // const currentNumber = chat.dataset.chat; // номер текущей темы чата
-    // // а теперь пройдёмся по всем темам чата, которые уже открыты
-    // for (let i = currentNumber + 1; i < chatLength; i++) {
-    //   const msgBlocks = chats[i].querySelectorAll('.chat__message-block'); // блок сообщений консультанта + анимация печатания
-    //   // блоки с сообщениями консультанта
-    //   msgBlocks.forEach(msgBlock => {
-    //     msgBlock.querySelector('.chat__message-consultant').classList.remove('msg-show'); // сообщение консультанта
-    //   });
+    const currentNumber = chat.dataset.chat; // номер текущей темы чата
+    // а теперь пройдёмся по всем темам чата, которые уже открыты
+    for (let i = currentNumber + 1; i < chatLength; i++) {
+      const msgBlocks = chats[i].querySelectorAll('.chat__message-block'); // блок сообщений консультанта + анимация печатания
+      // блоки с сообщениями консультанта
+      msgBlocks.forEach(msgBlock => {
+        msgBlock.querySelector('.chat__message-consultant').classList.remove('msg-show'); // сообщение консультанта
+      });
 
-    //   // блок с выборами
-    //   const msgBlocksChoice = chats[i].querySelector('.msg-blocks-choice');
-    //   msgBlocksChoice?.classList.remove('msg-show');
-    //   // блоки с вариантами выбора
-    //   msgBlocksChoice.querySelectorAll('.block-choice')?.forEach(blockChoice => {
-    //     blockChoice.classList.remove('active');
-    //   });
-    //   // если следующая тема чата это последний чат, то нужно скрыть actual-promo и footer
-    //   if (i === chatLength - 1) {
-    //     document.querySelector('.promo__footer-inner').classList.remove('active');
-    //     document.querySelector('.footer').classList.remove('active');
-    //   }
-    // }
+      // блок с выборами
+      const msgBlocksChoice = chats[i].querySelector('.msg-blocks-choice');
+      msgBlocksChoice?.classList.remove('msg-show');
+      // блоки с вариантами выбора
+      msgBlocksChoice.querySelectorAll('.block-choice')?.forEach(blockChoice => {
+        blockChoice.classList.remove('active');
+      });
+      // если следующая тема чата это последний чат, то нужно скрыть actual-promo и footer
+      if (i === chatLength - 1) {
+        document.querySelector('.promo__footer-inner').classList.remove('active');
+        document.querySelector('.footer').classList.remove('active');
+      }
+    }
     // numberChat = currentNumber + 1;
     // chatLogic(numberChat);
   }
