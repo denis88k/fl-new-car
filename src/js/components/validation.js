@@ -50,8 +50,20 @@ const validateForms = form => {
       },
     ])
     .onSuccess(event => {
-      console.log('Validation passes and form submitted', event);
+      // console.log('Validation passes and form submitted', event);
       event.target.reset();
+      // console.log(event.target, 'event');
+
+      document.querySelectorAll('.form').forEach(form => {
+        form.querySelectorAll('.form__input').forEach(input => {
+          input.classList.contains('just-validate-error-field') && input.classList.remove('just-validate-error-field');
+          input.classList.contains('just-validate-success-field') && input.classList.remove('just-validate-success-field');
+        });
+      });
+
+      // this.classList.contains('just-validate-error-field') && this.classList.remove('just-validate-error-field');
+      // this.classList.contains('just-validate-success-field') && this.classList.remove('just-validate-success-field');
+
       // при удачной валидации модальное окно закрывается
       document.querySelectorAll('.modal').forEach(modal => {
         modal.classList.contains('active') && modal.classList.remove('active') && body.classList.remove('_lock');

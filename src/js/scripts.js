@@ -18,27 +18,6 @@ window.addEventListener('scroll', () => {
 // true - elem вверху
 // elem.scrollIntoView(false)
 
-// ======================
-// const scrollIntoViewOptions = {
-//   behavior: 'smooth',
-//   block: 'end',
-//   inline: 'nearest',
-// };
-// ScrollElement.scrollIntoView(scrollIntoViewOptions);
-
-// =======================
-// scrollTarget - элемент до которого нужно скролить
-// function scrollMsg(scrollTarget) {
-//   const topOffset = 0;
-//   const elementPosition = scrollTarget.getBoundingClientRect().top; //расстояние от элемента до верхней части экрана
-//   const offsetPosition = elementPosition - topOffset; // насколько нужно скролить
-
-//   window.scrollBy({
-//     top: offsetPosition,
-//     behavior: 'smooth',
-//   });
-// }
-
 // ===========================Логика чата===================
 
 // чат
@@ -155,17 +134,11 @@ const chatLogic = numberChat => {
     const clickNextChat = e => {
       // console.log(e.currentTarget.dataset.car);
 
-      // document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
-      // scrollMsg(msgPrint);
-      // console.log(numberChat, 'in');
-      // blocksChoice.forEach(block => block.removeEventListener('click', clickNextChat));
-      // changeChoice(numberChat); // добавление изменения выбора в чате
-      // numberChat && changeChoiceReplayChat(numberChat);
-      console.log(processWork);
+      // console.log(processWork);
       let currentNumber = Number(chat.dataset.chat);
-      console.log(currentNumber, 'chat', numberChat, 'numberChat');
+      // console.log(currentNumber, 'chat', numberChat, 'numberChat');
       if (currentNumber === numberChat) {
-        console.log('currentNumber === numberChat', currentNumber, numberChat);
+        // console.log('currentNumber === numberChat', currentNumber, numberChat);
 
         blocksChoice.forEach(block => block.classList.remove('active'));
         e.currentTarget.classList.add('active');
@@ -179,7 +152,7 @@ const chatLogic = numberChat => {
         if (!processWork) {
           // срабатывает когда нажимаешь на блок с выборами, на другой вариант
           // и тогда удаляются все активные классы в других темах чата
-          console.log('заново');
+          // console.log('заново');
           blocksChoice.forEach(block => block.classList.remove('active'));
           e.currentTarget.classList.add('active');
           // clearTimeout(timerId);
@@ -225,7 +198,7 @@ const chatLogic = numberChat => {
           setTimeout(() => {
             msgAnswer.classList.add('msg-show-client');
             document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
-            console.log(numberChat, 'новый счёт');
+            // console.log(numberChat, 'новый счёт');
             chatLogic(numberChat);
           }, 200);
         } else return;
@@ -235,89 +208,8 @@ const chatLogic = numberChat => {
     blocksChoice.forEach(block => {
       block.addEventListener('click', clickNextChat);
     });
-
-    // blocksChoice.forEach(block => {
-    //   // block.addEventListener('click', clickReplayChat);
-    //   // block.addEventListener('click', () => console.log(numberChat));
-    // });
   }
   // });
 };
-
-// const clickReplayChat = e => {
-//   // console.log(numberChat, 'out');
-//   // if (numberChat) {
-//   //   console.log(numberChat, 'clickReplayChat');
-//   // }
-//   console.log(e.currentTarget.parentNode.parentNode.classList.contains('msg-show'));
-// };
-
-// проигрывание темы чата снова, в зависимости от изменения ответа в чате
-// логика при клике на блок с вариантами выбора
-const clickChoiceChangeChat = (e, numberChat) => {
-  console.log(numberChat, e.currentTarget.parentNode.parentNode);
-
-  const msgClient = chat.querySelector('.chat__message-client'); // сообщение клиента
-  msgClient.classList.contains('msg-show-client') && msgClient.classList.remove('msg-show-client'); // если ответ клиента отображён, то удалить этот класс
-
-  if (numberChat && e.currentTarget.parentNode.parentNode.classList.contains('msg-show')) {
-    console.log('сработало условие');
-    // удаляю в каждом класс active
-    // blocksChoice.forEach(blockChoice => {
-    //   blockChoice.classList.remove('active');
-    // });
-    // e.currentTarget.classList.add('active'); // навесил нажатому elem с выбором класс active
-
-    // const msgClient = chat.querySelector('.chat__message-client'); // сообщение клиента
-    // msgClient.classList.contains('msg-show-client') && msgClient.classList.remove('msg-show-client'); // если ответ клиента отображён, то удалить этот класс
-    // msgClient.innerHTML = e.currentTarget.dataset.choice;
-    // msgClient.classList.add('msg-show-client');
-
-    const currentNumber = chat.dataset.chat; // номер текущей темы чата
-    // а теперь пройдёмся по всем темам чата, которые уже открыты
-    for (let i = currentNumber + 1; i < chatLength; i++) {
-      const msgBlocks = chats[i].querySelectorAll('.chat__message-block'); // блок сообщений консультанта + анимация печатания
-      // блоки с сообщениями консультанта
-      msgBlocks.forEach(msgBlock => {
-        msgBlock.querySelector('.chat__message-consultant').classList.remove('msg-show'); // сообщение консультанта
-      });
-
-      // блок с выборами
-      const msgBlocksChoice = chats[i].querySelector('.msg-blocks-choice');
-      msgBlocksChoice?.classList.remove('msg-show');
-      // блоки с вариантами выбора
-      msgBlocksChoice.querySelectorAll('.block-choice')?.forEach(blockChoice => {
-        blockChoice.classList.remove('active');
-      });
-      // если следующая тема чата это последний чат, то нужно скрыть actual-promo и footer
-      if (i === chatLength - 1) {
-        document.querySelector('.promo__footer-inner').classList.remove('active');
-        document.querySelector('.footer').classList.remove('active');
-      }
-    }
-    // numberChat = currentNumber + 1;
-    // chatLogic(numberChat);
-  }
-};
-
-const changeChoiceReplayChat = numberChat => {
-  console.log(numberChat, 'out');
-  const chats = document.querySelectorAll(`.chat-messages`); // все темы с чатом
-  chats.forEach(chat => {
-    const blocksChoice = chat.querySelectorAll('.block-choice'); // блоки с выбором
-
-    blocksChoice?.forEach(blockChoice => {
-      // навешиваю каждому прослушку на клик
-      // blockChoice.addEventListener('click', e => {
-      //   console.log();
-      // });
-      blockChoice.addEventListener('click', clickChoiceChangeChat);
-    });
-  });
-};
-
-// changeChoiceReplayChat();
-
-// const inputs = document.querySelectorAll('.form__input');
 
 chatLogic(0);
