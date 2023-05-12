@@ -95,7 +95,7 @@ const scrollChat = chat => {
 // };
 
 let numberChat = 0;
-let timerId;
+// let timerId;
 let processWork;
 const chats = document.querySelectorAll('.chat-messages');
 const chatLength = chats.length; // длина блоков чата
@@ -141,10 +141,13 @@ const chatLogic = numberChat => {
     setTimeout(() => {
       numberChat && scrollChat(chat); // плавный скролл до начала нового блока чата с отступом
     });
-    processWork = false;
+    // появление всех блоков завершено
+    setTimeout(() => {
+      processWork = false;
+    });
   }, 2500 * msgBlocks.length + 950);
 
-  // блоки c выбором за которыми нужно следить
+  // блоки c вариантами выбора, за которыми нужно следить
   const blocksChoice = msgBlocksChoice.querySelectorAll('.block-choice');
   if (blocksChoice) {
     const msgAnswer = chat.querySelector('.chat__message-client');
