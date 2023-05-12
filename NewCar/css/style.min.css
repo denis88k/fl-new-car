@@ -433,6 +433,7 @@ body._lock {
   border-radius: 15px;
   padding-top: 22px;
   padding-bottom: 22px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 100%;
   text-align: center;
@@ -440,7 +441,11 @@ body._lock {
   background-color: #0084ff;
   transition: all 0.3s ease;
   cursor: pointer;
-  font-size: 20px;
+}
+@media (max-width: 1420px) {
+  .form__item-btn {
+    font-size: calc(18px + 2 * ((100vw - 320px) / 1100));
+  }
 }
 .form__item-btn::after {
   background-image: url("./../img/arrow_right_white.svg");
@@ -449,9 +454,9 @@ body._lock {
 .form__item-btn:hover {
   background-color: #309bff;
 }
-@media (max-width: 1420px) {
+@media screen and (width <= 750px) {
   .form__item-btn {
-    font-size: calc(18px + 2 * ((100vw - 320px) / 1100));
+    font-weight: 500;
   }
 }
 

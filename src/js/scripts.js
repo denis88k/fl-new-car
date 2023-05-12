@@ -71,8 +71,9 @@ const scrollIntoViewOptions = {
 // скролл до начала новой темы чата, после того, как все сообщения появились
 const scrollChat = chat => {
   const elementPosition = chat.getBoundingClientRect().top; //расстояние от элемента до верхней части экрана
-  const consultantSticky = document.querySelector('.consultant_sticky.show');
-  const offsetPosition = elementPosition - consultantSticky.offsetHeight; // насколько нужно скролить
+  const consultantSticky = document.querySelector('.consultant_sticky');
+  // если consultantSticky виден, то скроллится с учётом высоты этого стики, если нет, то без учёта
+  const offsetPosition = elementPosition - (consultantSticky ? consultantSticky.offsetHeight : 0); // насколько нужно скролить
   window.scrollBy({
     top: offsetPosition,
     behavior: 'smooth',
