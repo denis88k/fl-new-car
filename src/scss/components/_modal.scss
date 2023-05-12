@@ -130,18 +130,35 @@
 
 .modal-sendForm {
   & .modal__inner {
-    padding: 45px;
+    @include adaptiv-value(padding-top, 45, 25, 1);
+    @include adaptiv-value(padding-bottom, 45, 25, 1);
+    @include adaptiv-value(padding-left, 45, 25, 1);
+    @include adaptiv-value(padding-right, 45, 25, 1);
   }
 
   & .modal__subtitle {
-    margin-top: 30px;
-    margin-bottom: 5px;
-  }
+    @include adaptiv-value(margin-top, 12, 8, 1);
+    margin-right: 80px;
+    margin-bottom: 0;
+    margin-left: 80px;
+    @media screen and (width <= 1115px) {
+      margin-right: 100px;
+      margin-left: 100px;
+    }
+    @media screen and (width <= 665px) {
+      margin-right: 110px;
+      margin-left: 110px;
+    }
+    @media screen and (width <= 510px) {
+      margin-right: 60px;
+      margin-left: 60px;
+    }
+    @media screen and (width <= 400px) {
+      margin-right: 30px;
+      margin-left: 30px;
+    }
 
-  & .modal__img {
-    margin: 0 auto;
-    margin-bottom: 30px;
-    width: 55px;
-    height: 55px;
+    // @include adaptiv-value(margin-left, 70, 30, 1);
+    // @include adaptiv-value(margin-right, 70, 30, 1);
   }
 }
