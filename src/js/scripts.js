@@ -94,13 +94,16 @@ const scrollChat = chat => {
 // };
 
 let numberChat = 0;
+let timerId;
+let processWork;
 const chats = document.querySelectorAll('.chat-messages');
 const chatLength = chats.length; // длина блоков чата
 // логика работы
 const chatLogic = numberChat => {
+  // timerId = setTimeout(() => {
+  processWork = true;
   const chat = document.querySelector(`.chat-messages[data-chat="${numberChat}"]`); // блок чата
   const msgBlocks = chat.querySelectorAll('.chat__message-block'); // блок сообщений консультанта + анимация печатания
-
   // блоки с сообщениями консультанта
   msgBlocks.forEach((msgBlock, index) => {
     const msgPrint = msgBlock.querySelector('.chat__message-print'); // анимация печатания
@@ -124,8 +127,8 @@ const chatLogic = numberChat => {
     }, index * 2500 + 550);
   });
 
-  const msgBlocksChoice = chat.querySelector('.msg-blocks-choice'); // блок с выборами
-
+  // блок с выборами
+  const msgBlocksChoice = chat.querySelector('.msg-blocks-choice');
   setTimeout(() => {
     msgBlocksChoice?.classList.add('msg-show'); // блок с выборами появляется
 
@@ -137,6 +140,7 @@ const chatLogic = numberChat => {
     setTimeout(() => {
       numberChat && scrollChat(chat); // плавный скролл до начала нового блока чата с отступом
     });
+    processWork = false;
   }, 2500 * msgBlocks.length + 950);
 
   // блоки c выбором за которыми нужно следить
@@ -146,20 +150,21 @@ const chatLogic = numberChat => {
 
     const clickNextChat = e => {
       // console.log(e.currentTarget.dataset.car);
-      blocksChoice.forEach(block => block.classList.remove('active'));
-      e.currentTarget.classList.add('active');
 
-      document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
+      // document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
       // scrollMsg(msgPrint);
       // console.log(numberChat, 'in');
       // blocksChoice.forEach(block => block.removeEventListener('click', clickNextChat));
       // changeChoice(numberChat); // добавление изменения выбора в чате
       // numberChat && changeChoiceReplayChat(numberChat);
+      console.log(processWork);
       let currentNumber = Number(chat.dataset.chat);
       console.log(currentNumber, 'chat', numberChat, 'numberChat');
       if (currentNumber === numberChat) {
         console.log('currentNumber === numberChat', currentNumber, numberChat);
 
+        blocksChoice.forEach(block => block.classList.remove('active'));
+        e.currentTarget.classList.add('active');
         msgAnswer.innerHTML = e.currentTarget.dataset.choice;
         msgAnswer.classList.add('msg-show-client'); // показать сообщение клиента
         document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
@@ -167,60 +172,60 @@ const chatLogic = numberChat => {
         numberChat++;
         chatLogic(numberChat);
       } else {
-        // срабатывает когда нажимаешь на блок с выборами, на другой вариант
-        // и тогда удаляются все активные классы в других темах чата
-        console.log('заново');
-        numberChat && clearTimeout(chatLogic(numberChat));
-        // а теперь пройдёмся по всем темам чата, которые уже открыты
-        for (let i = currentNumber + 1; i < chatLength; i++) {
-          const msgBlocks = chats[i].querySelectorAll('.chat__message-block'); // блок сообщений консультанта + анимация печатания
-          // блоки с анимацией печатания и с сообщениями консультанта
-          msgBlocks.forEach(msgBlock => {
-            const msgPrint = msgBlock.querySelector('.chat__message-print'); // анимация печатания
-            msgPrint.classList.contains('msg-print-show') && msgPrint.classList.add('msg-print-show');
+        if (!processWork) {
+          // срабатывает когда нажимаешь на блок с выборами, на другой вариант
+          // и тогда удаляются все активные классы в других темах чата
+          console.log('заново');
+          blocksChoice.forEach(block => block.classList.remove('active'));
+          e.currentTarget.classList.add('active');
+          // clearTimeout(timerId);
 
-            const msgChatConsultant = msgBlock.querySelector('.chat__message-consultant');
-            msgChatConsultant.classList.contains('msg-show') && msgChatConsultant.classList.remove('msg-show');
-          });
+          // а теперь пройдёмся по всем темам чата, которые уже открыты
+          for (let i = currentNumber + 1; i < chatLength; i++) {
+            const msgBlocks = chats[i].querySelectorAll('.chat__message-block'); // блок сообщений консультанта + анимация печатания
+            // блоки с анимацией печатания и с сообщениями консультанта
+            msgBlocks.forEach(msgBlock => {
+              const msgPrint = msgBlock.querySelector('.chat__message-print'); // анимация печатания
+              msgPrint.classList.contains('msg-print-show') && msgPrint.classList.add('msg-print-show');
 
-          // блок с выборами
-          const msgBlocksChoice = chats[i].querySelector('.msg-blocks-choice');
-          msgBlocksChoice.classList.contains('msg-show') && msgBlocksChoice?.classList.remove('msg-show');
-
-          // блоки с вариантами выбора
-          const BlocksChoice = msgBlocksChoice.querySelectorAll('.block-choice');
-          if (BlocksChoice) {
-            BlocksChoice.forEach(blockChoice => {
-              blockChoice.classList.contains('active') && blockChoice.classList.remove('active');
+              const msgChatConsultant = msgBlock.querySelector('.chat__message-consultant');
+              msgChatConsultant.classList.contains('msg-show') && msgChatConsultant.classList.remove('msg-show');
             });
+
+            // блок с выборами
+            const msgBlocksChoice = chats[i].querySelector('.msg-blocks-choice');
+            msgBlocksChoice.classList.contains('msg-show') && msgBlocksChoice?.classList.remove('msg-show');
+
+            // блоки с вариантами выбора
+            const BlocksChoice = msgBlocksChoice.querySelectorAll('.block-choice');
+            if (BlocksChoice) {
+              BlocksChoice.forEach(blockChoice => {
+                blockChoice.classList.contains('active') && blockChoice.classList.remove('active');
+              });
+            }
+
+            // ответы клиента
+            const msgClient = chats[i].querySelector('.chat__message-client'); // сообщение клиента
+            msgClient?.classList.contains('msg-show-client') && msgClient.classList.remove('msg-show-client'); // если ответ клиента отображён, то удалить этот класс
+
+            // если следующая тема чата это последний чат, то нужно скрыть actual-promo и footer
+            if (i === chatLength - 1) {
+              document.querySelector('.promo__footer-inner').classList.remove('active');
+              document.querySelector('.footer').classList.remove('active');
+            }
           }
 
-          // ответы клиента
-          const msgClient = chats[i].querySelector('.chat__message-client'); // сообщение клиента
-          msgClient?.classList.contains('msg-show-client') && msgClient.classList.remove('msg-show-client'); // если ответ клиента отображён, то удалить этот класс
-
-          // если следующая тема чата это последний чат, то нужно скрыть actual-promo и footer
-          if (i === chatLength - 1) {
-            document.querySelector('.promo__footer-inner').classList.remove('active');
-            document.querySelector('.footer').classList.remove('active');
-          }
+          // если ответ клиента отображён, то удалить этот класс:
+          msgAnswer.classList.contains('msg-show-client') && msgAnswer.classList.remove('msg-show-client');
+          msgAnswer.innerHTML = e.currentTarget.dataset.choice;
+          setTimeout(() => {
+            msgAnswer.classList.add('msg-show-client');
+            document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
+            console.log(numberChat, 'новый счёт');
+            chatLogic(numberChat);
+          }, 200);
         }
-
-        // если ответ клиента отображён, то удалить этот класс:
-        msgAnswer.classList.contains('msg-show-client') && msgAnswer.classList.remove('msg-show-client');
-        msgAnswer.innerHTML = e.currentTarget.dataset.choice;
-        setTimeout(() => {
-          msgAnswer.classList.add('msg-show-client');
-          document.querySelector('.chat__inner').scrollIntoView(scrollIntoViewOptions); // прокрутка вниз, до сообщения с ответом клиента
-          console.log(numberChat, 'новый счёт');
-          chatLogic(numberChat);
-        }, 200);
-
-        // numberChat = currentNumber + 1;
       }
-      // numberChat++;
-      // console.log(numberChat, 'clickNextChat', currentNumber, 'currentNumber');
-      // chatLogic(numberChat);
     };
 
     blocksChoice.forEach(block => {
@@ -232,6 +237,7 @@ const chatLogic = numberChat => {
     //   // block.addEventListener('click', () => console.log(numberChat));
     // });
   }
+  // });
 };
 
 // const clickReplayChat = e => {
