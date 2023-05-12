@@ -224,7 +224,7 @@ const chatLogic = numberChat => {
             console.log(numberChat, 'новый счёт');
             chatLogic(numberChat);
           }, 200);
-        }
+        } else return;
       }
     };
 

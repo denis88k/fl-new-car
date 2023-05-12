@@ -43,9 +43,12 @@ document.querySelectorAll('.form').forEach(form => {
       if (this.classList.contains('input__tel')) {
         console.log(this.inputmask.unmaskedvalue(), 'focus tel');
       }
-      if (this.classList.contains('just-validate-error-field')) {
-        this.classList.remove('just-validate-error-field');
-      }
+      this.classList.contains('just-validate-error-field') && this.classList.remove('just-validate-error-field');
+      this.classList.contains('just-validate-success-field') && this.classList.remove('just-validate-success-field');
+      // if (this.classList.contains('just-validate-error-field') || this.classList.contains('just-validate-success-field')) {
+      //   this.classList.remove('just-validate-error-field');
+      //   this.classList.remove('just-validate-success-field');
+      // }
       if (this.classList.contains('input__name')) {
         console.log(this, 'focus name');
       }
