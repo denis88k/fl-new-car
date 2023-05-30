@@ -11,10 +11,7 @@ const validateForms = form => {
     inputMask.mask(inputTel);
   }
 
-  const validation = new JustValidate(
-    form,
-    // { validateBeforeSubmitting: true }
-  );
+  const validation = new JustValidate(form);
 
   validation
     .addField('.input__tel', [
@@ -50,9 +47,7 @@ const validateForms = form => {
       },
     ])
     .onSuccess(event => {
-      // console.log('Validation passes and form submitted', event);
       event.target.reset();
-      // console.log(event.target, 'event');
 
       document.querySelectorAll('.form').forEach(form => {
         form.querySelectorAll('.form__input').forEach(input => {
@@ -60,9 +55,6 @@ const validateForms = form => {
           input.classList.contains('just-validate-success-field') && input.classList.remove('just-validate-success-field');
         });
       });
-
-      // this.classList.contains('just-validate-error-field') && this.classList.remove('just-validate-error-field');
-      // this.classList.contains('just-validate-success-field') && this.classList.remove('just-validate-success-field');
 
       // при удачной валидации модальное окно закрывается
       document.querySelectorAll('.modal').forEach(modal => {
@@ -94,5 +86,4 @@ const validateForms = form => {
     });
 };
 
-// .refresh()
 export default validateForms;

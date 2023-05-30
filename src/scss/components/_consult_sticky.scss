@@ -22,7 +22,6 @@
     padding-left: 25px;
     max-width: 940px;
 
-    // padding-left: 25px;
     @include adaptiv-value(padding-right, 25, 15, 1);
     @include adaptiv-value(padding-right, 0, 25, 1);
   }
@@ -33,15 +32,6 @@
     justify-content: space-between;
     margin-top: 15px;
     margin-bottom: 15px;
-
-    // margin-left: 25px;
-    // @include adaptiv-value(margin-right, 15, 0, 1);
-    // margin-right: auto;
-
-    @media screen and (width <= 1470px) {
-      // @include adaptiv-value(margin-right, 15, 0, 1);
-      // @include adaptiv-value(margin-left, 15, 0, 1);
-    }
   }
 
   &_sticky-block {
@@ -57,9 +47,6 @@
     @include adaptiv-value(height, 75, 38, 1);
     @include adaptiv-value(margin-right, 25, 10, 1);
   }
-
-  // &_sticky-info {
-  // }
 
   &_sticky-name {
     @include adaptiv-value(margin-bottom, 5, 0, 1);

@@ -30,8 +30,6 @@
   }
 
   &__text {
-    // @include maxwidth(346);
-    // max-width: 346px;
     @include adaptiv-value(font-size, 16, 14, 1);
     font-weight: 400;
     font-style: normal;

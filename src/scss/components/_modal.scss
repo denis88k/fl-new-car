@@ -76,8 +76,6 @@
       &::before {
         left: -380px;
         transform: translate(0, -70%);
-
-        // right: 0;
       }
 
       &::after {
@@ -157,8 +155,5 @@
       margin-right: 30px;
       margin-left: 30px;
     }
-
-    // @include adaptiv-value(margin-left, 70, 30, 1);
-    // @include adaptiv-value(margin-right, 70, 30, 1);
   }
 }

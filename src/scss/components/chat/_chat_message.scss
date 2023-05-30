@@ -37,7 +37,6 @@
     opacity: 0;
     visibility: hidden;
     @include adaptiv-value(margin-bottom, 20, 15, 1);
-    // transform: translateX(-40px);
     transition: all 0.3s ease;
   }
 
@@ -80,8 +79,6 @@
       position: static;
       opacity: 1;
       visibility: visible;
-
-      // animation: anim_print_show 0.2s ease forwards;
       animation: anim_show_message 0.2s ease forwards;
     }
   }
@@ -115,27 +112,13 @@
   }
 }
 
-// @keyframes anim_print_show {
-//   from {
-//     opacity: 0;
-//     transform: translateX(-40px);
-//   }
-
-//   to {
-//     opacity: 1;
-//     transform: translateX(0);
-//   }
-// }
-
 @keyframes anim_show_message {
   from {
-    // height: 0;
     opacity: 0;
     transform: translateX(-40px);
   }
 
   to {
-    // height: auto;
     opacity: 1;
     transform: translateX(0);
   }
@@ -143,13 +126,11 @@
 
 @keyframes anim_show_message-client {
   from {
-    // height: 0;
     opacity: 0;
     transform: translateX(40px);
   }
 
   to {
-    // height: auto;
     opacity: 1;
     transform: translateX(0);
   }

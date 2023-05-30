@@ -42,11 +42,7 @@ const scrollIntoViewOptions = {
   block: 'end',
   inline: 'nearest',
 };
-// const scrollIntoViewOptionsChat = {
-//   behavior: 'smooth',
-//   block: 'start',
-//   inline: 'nearest',
-// };
+
 // скролл до начала новой темы чата, после того, как все сообщения появились
 const scrollChat = chat => {
   const elementPosition = chat.getBoundingClientRect().top; //расстояние от элемента до верхней части экрана
@@ -59,23 +55,10 @@ const scrollChat = chat => {
   });
 };
 
-// возможность изменять выбранные элементы, после того, как переключишься на новую тему
-// const changeChoice = numberChat => {
-//   const chatMessages = document.querySelector(`.chat-messages[data-chat="${numberChat}"]`);
-//   chatMessages.querySelectorAll('.block-choice')?.forEach(blockChoice => {
-//     blockChoice.addEventListener('click', e => {
-//       chatMessages.querySelectorAll('.block-choice')?.forEach(blockChoice => {
-//         blockChoice.classList.remove('active');
-//       });
-//       e.currentTarget.classList.add('active');
-//       chatMessages.querySelector('.chat__message-client').innerHTML = e.currentTarget.dataset.choice;
-//     });
-//   });
-// };
-
+// ===================================сам чатик==========
 let numberChat = 0;
-// let timerId;
 let processWork;
+
 const chats = document.querySelectorAll('.chat-messages');
 const chatLength = chats.length; // длина блоков чата
 // логика работы
@@ -155,7 +138,6 @@ const chatLogic = numberChat => {
           // console.log('заново');
           blocksChoice.forEach(block => block.classList.remove('active'));
           e.currentTarget.classList.add('active');
-          // clearTimeout(timerId);
 
           // а теперь пройдёмся по всем темам чата, которые уже открыты
           for (let i = currentNumber + 1; i < chatLength; i++) {
@@ -209,7 +191,6 @@ const chatLogic = numberChat => {
       block.addEventListener('click', clickNextChat);
     });
   }
-  // });
 };
 
 chatLogic(numberChat);
