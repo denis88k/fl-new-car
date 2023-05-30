@@ -46,32 +46,3 @@ document.querySelectorAll('.form').forEach(form => {
     };
   });
 });
-
-// input.onblur = e => {
-// console.log(e.target.value);
-// if (e.target.value.match(/_/g)) {
-//   input.classList.remove('just-validate-success-field');
-//   input.classList.remove('just-validate-error-field');
-//   //
-//   e.target.classList.add('just-validate-error-field');
-//   console.log(1);
-// }
-// if (e.target.value.boolean === undefined) {
-//   console.log('und');
-//   input.classList.remove('just-validate-success-field');
-//   input.classList.remove('just-validate-error-field');
-//   return;
-// } else if (input.value.match(/_/g)) {
-//   input.classList.remove('just-validate-success-field');
-//   input.classList.remove('just-validate-error-field');
-//   //
-//   input.classList.add('just-validate-error-field');
-//   console.log(2);
-// } else if (!input.value.match(/\+7\s\(\d{3}\)\s\d{3}\s-\s\d{2}\s-\s\d{2}/g)) {
-//   input.classList.remove('just-validate-success-field');
-//   input.classList.remove('just-validate-error-field');
-//   //
-//   input.classList.add('just-validate-success-field');
-//   console.log(3);
-// }
-// };
