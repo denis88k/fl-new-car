@@ -212,4 +212,4 @@ const chatLogic = numberChat => {
   // });
 };
 
-chatLogic(0);
+chatLogic(numberChat);
