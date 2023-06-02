@@ -44,7 +44,7 @@
   }
 }
 
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .promo {
     &-title {
       font-size: 22px;

@@ -57,7 +57,7 @@
     color: #309cff;
   }
 }
-@media screen and (width <= 780px) {
+@media screen and (max-width: 780px) {
   .header {
     &__inner {
       flex-direction: column;
@@ -78,7 +78,7 @@
   }
 }
 
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .header {
     &__text {
       max-width: 220px;

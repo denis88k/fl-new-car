@@ -447,6 +447,7 @@
         "unspecified": "bottomAlphabetical"
       }
     ],
-    "scss/dollar-variable-pattern": ["/[a-z][a-zA-Z]+/", { "ignore": "local" }]
+    "scss/dollar-variable-pattern": ["/[a-z][a-zA-Z]+/", { "ignore": "local" }],
+    "media-feature-range-notation": "prefix"
   }
 }

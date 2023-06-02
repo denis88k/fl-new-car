@@ -2,8 +2,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  @media screen and (width <= 750px) {
+  @media screen and (max-width: 750px) {
     min-width: 345px;
+  }
+  @media screen and (max-width: 355px) {
+    min-width: 290px;
   }
 
   &__item {
@@ -91,7 +94,7 @@
       background-color: #309bff;
     }
 
-    @media screen and (width <= 750px) {
+    @media screen and (max-width: 750px) {
       font-weight: 500;
     }
   }

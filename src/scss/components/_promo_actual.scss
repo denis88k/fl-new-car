@@ -37,7 +37,7 @@
     line-height: 110%;
     text-align: center;
     color: #31333e;
-    @media screen and (width <= 420px) {
+    @media screen and (max-width: 420px) {
       font-weight: 700;
     }
   }
@@ -46,7 +46,7 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    @media screen and (width <= 750px) {
+    @media screen and (max-width: 750px) {
       flex-direction: column;
       align-items: center;
     }
@@ -66,7 +66,7 @@
     transition: all 0.3s ease;
     cursor: pointer;
     @include adaptiv-value(max-width, 453, 345, 1);
-    @media screen and (width <= 450px) {
+    @media screen and (max-width: 450px) {
       padding: 20px 10px 40px 25px;
     }
   }

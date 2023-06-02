@@ -4,7 +4,7 @@
     align-items: center;
     @include adaptiv-value(margin-bottom, 35, 20, 1);
 
-    @media screen and (width <= 650px) {
+    @media screen and (max-width: 650px) {
       justify-content: space-between;
     }
   }

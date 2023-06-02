@@ -4,7 +4,7 @@
     flex-direction: column;
     @include adaptiv-value(margin-top, 5, 15, 1);
     @include adaptiv-value(row-gap, 30, 25, 1);
-    @media screen and (width <= 420px) {
+    @media screen and (max-width: 420px) {
       margin-right: -15px;
       margin-left: -15px;
     }
@@ -29,7 +29,7 @@
     color: #31333e;
     transition: all 0.3s linear;
     transition: all 0.3s ease;
-    @media screen and (width <= 420px) {
+    @media screen and (max-width: 420px) {
       margin-right: 36px;
       margin-left: 10px;
     }
@@ -115,7 +115,7 @@
   }
 }
 
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .equipment {
     &__title {
       line-height: 125%;

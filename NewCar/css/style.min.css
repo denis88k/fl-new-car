@@ -152,7 +152,7 @@ body._lock {
   background-repeat: no-repeat;
 }
 
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .promo-title {
     font-size: 22px;
   }
@@ -245,7 +245,7 @@ body._lock {
     height: calc(35px + 5 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 730px) {
+@media screen and (max-width: 730px) {
   .modal__close {
     right: 15px;
     top: -53px;
@@ -263,7 +263,7 @@ body._lock {
     font-size: calc(28px + 15 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .modal__title {
     font-weight: 700;
   }
@@ -297,7 +297,7 @@ body._lock {
   background-size: cover;
   background-repeat: no-repeat;
 }
-@media screen and (width <= 900px) {
+@media screen and (max-width: 900px) {
   .modal-payment .modal__inner::before, .modal-payment .modal__inner::after {
     display: none;
   }
@@ -390,25 +390,25 @@ body._lock {
     margin-top: calc(8px + 4 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 1115px) {
+@media screen and (max-width: 1115px) {
   .modal-sendForm .modal__subtitle {
     margin-right: 100px;
     margin-left: 100px;
   }
 }
-@media screen and (width <= 665px) {
+@media screen and (max-width: 665px) {
   .modal-sendForm .modal__subtitle {
     margin-right: 110px;
     margin-left: 110px;
   }
 }
-@media screen and (width <= 510px) {
+@media screen and (max-width: 510px) {
   .modal-sendForm .modal__subtitle {
     margin-right: 60px;
     margin-left: 60px;
   }
 }
-@media screen and (width <= 400px) {
+@media screen and (max-width: 400px) {
   .modal-sendForm .modal__subtitle {
     margin-right: 30px;
     margin-left: 30px;
@@ -420,9 +420,14 @@ body._lock {
   flex-direction: column;
   gap: 20px;
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .form {
     min-width: 345px;
+  }
+}
+@media screen and (max-width: 355px) {
+  .form {
+    min-width: 290px;
   }
 }
 .form__item {
@@ -502,7 +507,7 @@ body._lock {
 .form__item-btn:hover {
   background-color: #309bff;
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .form__item-btn {
     font-weight: 500;
   }
@@ -628,7 +633,7 @@ body._lock {
   }
 }
 
-@media screen and (width <= 780px) {
+@media screen and (max-width: 780px) {
   .header__inner {
     flex-direction: column;
   }
@@ -643,7 +648,7 @@ body._lock {
     color: #309cff;
   }
 }
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .header__text {
     max-width: 220px;
     line-height: 135%;
@@ -758,7 +763,7 @@ body._lock {
 .consultant_sticky-position.mobil {
   display: none;
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .consultant_sticky-position.deskt {
     display: none;
   }
@@ -775,7 +780,7 @@ body._lock {
   background-color: #f6f7f8;
   cursor: pointer;
 }
-@media screen and (width <= 500px) {
+@media screen and (max-width: 500px) {
   .consultant_sticky__tel {
     width: 63px;
     height: 43px;
@@ -792,7 +797,7 @@ body._lock {
 .consultant_sticky__tel-link .tel-link-mob {
   display: none;
 }
-@media screen and (width <= 500px) {
+@media screen and (max-width: 500px) {
   .consultant_sticky__tel-link .tel-link-desk {
     display: none;
   }
@@ -827,7 +832,7 @@ body._lock {
     margin-bottom: calc(36px + 8 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .title-main {
     font-weight: 700;
   }
@@ -838,7 +843,7 @@ body._lock {
   justify-content: space-between;
   gap: 20px 30px;
 }
-@media screen and (width <= 1050px) {
+@media screen and (max-width: 1050px) {
   .promo__header-inner {
     flex-direction: column;
     align-items: center;
@@ -857,7 +862,7 @@ body._lock {
 .promo__header-block:nth-child(1) {
   overflow: hidden;
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo__header-block {
     flex-direction: column;
     gap: 0;
@@ -871,7 +876,7 @@ body._lock {
   margin-bottom: 37px;
   margin-left: 40px;
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo__header-discr {
     margin-bottom: 0;
   }
@@ -886,7 +891,7 @@ body._lock {
   width: 7.1px;
   height: 11.5px;
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo__header-title:nth-child(1)::after {
     right: 0;
     top: 40px;
@@ -894,18 +899,18 @@ body._lock {
     background-image: url("./../img/arrow_right_blue.svg");
   }
 }
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .promo__header-title:nth-child(1)::after {
     right: 40px;
     top: 33px;
   }
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo__header-block:nth-child(2) .promo__header-title::after {
     right: -20px;
   }
 }
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .promo__header-block:nth-child(2) .promo__header-title::after {
     right: 15px;
   }
@@ -933,14 +938,14 @@ body._lock {
   min-height: 100%;
   background: linear-gradient(133.04deg, #98b5ff 9.59%, rgba(153, 182, 255, 0.76) 94.37%);
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo__header-img {
     border-radius: 0 0 15px 15px;
     width: 100%;
     height: 145px;
   }
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo__header-btn {
     display: none;
   }
@@ -961,42 +966,38 @@ body._lock {
   height: 243px;
   background-image: url("./../img/car.png");
 }
-@media screen and (width <= 1200px) {
+@media screen and (max-width: 1200px) {
   .promo-car::before {
     width: 310px;
     height: 180px;
   }
 }
-@media screen and (width <= 1050px) {
+@media screen and (max-width: 1050px) {
   .promo-car::before {
     width: 380px;
     height: 243px;
   }
 }
-@media screen and (width <= 660px) {
+@media screen and (max-width: 660px) {
   .promo-car::before {
     width: 305px;
     height: 220px;
   }
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo-car::before {
     width: 430px;
     height: 260px;
   }
 }
-@media screen and (width <= 600px) and (max-width: 600px) {
+@media screen and (max-width: 600px) and (max-width: 600px) {
   .promo-car::before {
-    width: calc(
-      330px + 100 * ((100vw - 375px) / 225)
-    );
+    width: calc(330px + 100 * ((100vw - 375px) / 225));
   }
 }
-@media screen and (width <= 600px) and (max-width: 600px) {
+@media screen and (max-width: 600px) and (max-width: 600px) {
   .promo-car::before {
-    height: calc(
-      215px + 45 * ((100vw - 375px) / 225)
-    );
+    height: calc(215px + 45 * ((100vw - 375px) / 225));
   }
 }
 .promo-car::after {
@@ -1005,7 +1006,7 @@ body._lock {
   height: 100%;
   background-image: url("./../img/percent-car.png");
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo-car::after {
     background-image: none;
   }
@@ -1026,7 +1027,7 @@ body._lock {
   height: 356.73px;
   background-image: url("./../img/arrow_around.svg");
 }
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   .promo-percent::before {
     left: 0;
     left: 50%;
@@ -1076,16 +1077,12 @@ body._lock {
 }
 @media (max-width: 940px) {
   .chat__container {
-    padding-left: calc(
-      15px + 105 * ((100vw - 375px) / 565)
-    );
+    padding-left: calc(15px + 105 * ((100vw - 375px) / 565));
   }
 }
 @media (max-width: 940px) {
   .chat__container {
-    padding-right: calc(
-      15px + 105 * ((100vw - 375px) / 565)
-    );
+    padding-right: calc(15px + 105 * ((100vw - 375px) / 565));
   }
 }
 @media (max-width: 1420px) {
@@ -1132,7 +1129,7 @@ body._lock {
     margin-bottom: calc(20px + 15 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 650px) {
+@media screen and (max-width: 650px) {
   .chat__consultant-inner {
     justify-content: space-between;
   }
@@ -1368,12 +1365,10 @@ body._lock {
 }
 @media (max-width: 940px) {
   .car__card-img {
-    width: calc(
-      230px + 109 * ((100vw - 620px) / 320)
-    );
+    width: calc(230px + 109 * ((100vw - 620px) / 320));
   }
 }
-@media screen and (width <= 620px) {
+@media screen and (max-width: 620px) {
   .car__card-img {
     width: 339px;
   }
@@ -1412,9 +1407,6 @@ body._lock {
   line-height: 100%;
   color: #8d8d8d;
 }
-.car__card-price .price-car {
-  color: inherit;
-}
 .car__card-block:hover .car__card-img {
   background-color: #f6f7f8;
 }
@@ -1444,7 +1436,7 @@ body._lock {
     row-gap: calc(25px + 5 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .equipment__blocks {
     margin-right: -15px;
     margin-left: -15px;
@@ -1494,10 +1486,10 @@ body._lock {
     font-size: calc(26px + 2 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .equipment__title {
-    margin-left: 10px;
     margin-right: 36px;
+    margin-left: 10px;
   }
 }
 .equipment__list {
@@ -1574,7 +1566,7 @@ body._lock {
   color: #0084ff;
 }
 
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .equipment__title {
     line-height: 125%;
   }
@@ -1599,7 +1591,7 @@ body._lock {
 .color__block.active {
   background-color: #e2f1ff;
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .color__block {
     padding: 15px 20px;
   }
@@ -1629,7 +1621,7 @@ body._lock {
   color: #0084ff;
 }
 
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .color__block-text {
     line-height: 125%;
   }
@@ -1652,7 +1644,7 @@ body._lock {
     padding-top: calc(38px + 12 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .chat__form-inner {
     flex-direction: column;
     align-items: center;
@@ -1662,7 +1654,7 @@ body._lock {
 .chat__form-block {
   flex: 1 1 50%;
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .chat__form-block {
     flex: 1 1 100%;
   }
@@ -1723,7 +1715,7 @@ body._lock {
     padding-bottom: calc(15px + 15 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .discount__text {
     padding-right: 25px;
     padding-left: 25px;
@@ -1784,7 +1776,7 @@ body._lock {
     font-size: calc(32px + 18 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 420px) {
+@media screen and (max-width: 420px) {
   .promo__footer-title {
     font-weight: 700;
   }
@@ -1794,7 +1786,7 @@ body._lock {
   justify-content: space-between;
   gap: 20px;
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .promo__footer-blocks {
     flex-direction: column;
     align-items: center;
@@ -1825,7 +1817,7 @@ body._lock {
     max-width: calc(345px + 108 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 450px) {
+@media screen and (max-width: 450px) {
   .promo__footer-block {
     padding: 20px 10px 40px 25px;
   }
@@ -1920,7 +1912,7 @@ body._lock {
     margin-bottom: calc(12px + 13 * ((100vw - 320px) / 1100));
   }
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .footer__inner {
     flex-direction: column;
   }
@@ -1932,19 +1924,17 @@ body._lock {
 }
 @media (max-width: 1420px) {
   .footer__requisites {
-    column-gap: calc(
-      12px + 35 * ((100vw - 950px) / 470)
-    );
+    column-gap: calc(12px + 35 * ((100vw - 950px) / 470));
   }
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .footer__requisites {
     column-gap: 15px;
     margin-bottom: 20px;
     row-gap: 12px;
   }
 }
-@media screen and (width <= 450px) {
+@media screen and (max-width: 450px) {
   .footer__requisites {
     flex-direction: column;
     align-items: center;
@@ -1956,7 +1946,7 @@ body._lock {
   line-height: 100%;
   color: #a9a9a9;
 }
-@media screen and (width <= 450px) {
+@media screen and (max-width: 450px) {
   .footer__requisites-item {
     line-height: 150%;
   }
@@ -1968,7 +1958,7 @@ body._lock {
   color: #0085ff;
   cursor: pointer;
 }
-@media screen and (width <= 750px) {
+@media screen and (max-width: 750px) {
   .footer__agreement {
     text-align: center;
   }

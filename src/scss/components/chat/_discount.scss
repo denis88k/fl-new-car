@@ -39,7 +39,7 @@
     line-height: 135%;
     text-align: center;
     color: #838383;
-    @media screen and (width <= 750px) {
+    @media screen and (max-width: 750px) {
       $padding: 25px;
       padding-right: $padding;
       padding-left: $padding;
